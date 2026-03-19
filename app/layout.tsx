@@ -3,11 +3,10 @@ export const metadata = {
   description: 'State-of-the-art family dentistry serving Orlando since 1989.',
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body style={{ margin: 0 }}>{children}</body>
     </html>
   )
 }
-
