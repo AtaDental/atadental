@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 
+const LOGO_URL = "https://einstein-clients.imgix.net/7805/415440/original.svg?1664215417=&auto=format&fit=max&w=361";
+
 const SERVICES = [
   { icon: "👑", title: "Dental Crowns", desc: "Restore damaged teeth in a single visit using advanced 3Shape TRIOS scanners and CAD/CAM technology." },
   { icon: "🦷", title: "Dental Implants", desc: "Replace missing teeth with implant-supported restorations — the gold standard in restorative care, performed entirely in-house." },
@@ -121,71 +123,72 @@ export default function AtaDentalSite() {
   };
 
   return (
-    <div style={{ fontFamily: "'Libre Franklin', 'Segoe UI', sans-serif", color: "#1a2e35", background: "#faf9f6", minHeight: "100vh", overflowX: "hidden" }}>
+    <div style={{ fontFamily: "'Libre Franklin', 'Segoe UI', sans-serif", color: "#1a1a1a", background: "#ffffff", minHeight: "100vh", overflowX: "hidden" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Franklin:wght@300;400;500;600;700&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         :root {
-          --teal: #1a7a6d;
-          --teal-dark: #145f55;
-          --teal-light: #e6f5f2;
-          --cream: #faf9f6;
-          --warm: #f5efe6;
-          --gold: #c8a45e;
-          --text: #1a2e35;
-          --text-light: #5a7078;
+          --red: #c41230;
+          --red-dark: #a00f28;
+          --red-light: #fdf0f2;
+          --black: #1a1a1a;
+          --dark: #2d2d2d;
+          --grey: #555555;
+          --grey-light: #888888;
+          --grey-bg: #f5f5f5;
+          --grey-border: #e0e0e0;
           --white: #ffffff;
-          --shadow: 0 4px 24px rgba(26,46,53,0.08);
-          --shadow-lg: 0 12px 48px rgba(26,46,53,0.12);
+          --shadow: 0 4px 24px rgba(0,0,0,0.08);
+          --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
         }
         .serif { font-family: 'DM Serif Display', Georgia, serif; }
         .nav-link {
           position: relative; cursor: pointer; font-size: 13px; font-weight: 600;
-          letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-light);
+          letter-spacing: 0.6px; text-transform: uppercase; color: var(--grey);
           transition: color 0.3s; padding: 4px 0; background: none; border: none; font-family: inherit;
         }
-        .nav-link:hover, .nav-link.active { color: var(--teal); }
+        .nav-link:hover, .nav-link.active { color: var(--red); }
         .nav-link.active::after {
           content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
-          height: 2px; background: var(--gold); border-radius: 1px;
+          height: 2px; background: var(--red); border-radius: 1px;
         }
         .btn-primary {
-          background: var(--teal); color: white; border: none; padding: 14px 36px;
+          background: var(--red); color: white; border: none; padding: 14px 36px;
           border-radius: 6px; font-size: 15px; font-weight: 600; cursor: pointer;
           transition: all 0.3s; letter-spacing: 0.3px; font-family: inherit;
         }
-        .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); box-shadow: var(--shadow); }
+        .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); box-shadow: var(--shadow); }
         .btn-outline {
-          background: transparent; color: var(--teal); border: 2px solid var(--teal);
+          background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.5);
           padding: 12px 34px; border-radius: 6px; font-size: 15px; font-weight: 600;
           cursor: pointer; transition: all 0.3s; font-family: inherit;
         }
-        .btn-outline:hover { background: var(--teal); color: white; }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; }
         .card {
           background: var(--white); border-radius: 12px; padding: 28px;
           box-shadow: var(--shadow); transition: all 0.35s;
         }
         .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
         .input-field {
-          width: 100%; padding: 12px 16px; border: 1.5px solid #d4dde0;
+          width: 100%; padding: 12px 16px; border: 1.5px solid var(--grey-border);
           border-radius: 8px; font-size: 15px; font-family: inherit;
-          transition: border-color 0.3s, box-shadow 0.3s; background: var(--white); color: var(--text);
+          transition: border-color 0.3s, box-shadow 0.3s; background: var(--white); color: var(--black);
         }
-        .input-field:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(26,122,109,0.12); }
-        .input-label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; letter-spacing: 0.3px; }
+        .input-field:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px rgba(196,18,48,0.1); }
+        .input-label { display: block; font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 6px; letter-spacing: 0.3px; }
         .section-pad { padding: 100px 24px; max-width: 1140px; margin: 0 auto; }
         .hero-bg {
-          background: linear-gradient(135deg, #1a7a6d 0%, #145f55 40%, #0e4a42 100%);
+          background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 40%, #3a3a3a 100%);
           position: relative; overflow: hidden;
         }
         .hero-bg::before {
           content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px;
-          background: radial-gradient(circle, rgba(200,164,94,0.15) 0%, transparent 70%); border-radius: 50%;
+          background: radial-gradient(circle, rgba(196,18,48,0.12) 0%, transparent 70%); border-radius: 50%;
         }
         .hero-bg::after {
           content: ''; position: absolute; bottom: -30%; left: -10%; width: 500px; height: 500px;
-          background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%); border-radius: 50%;
+          background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%); border-radius: 50%;
         }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -199,16 +202,16 @@ export default function AtaDentalSite() {
         }
         @media (min-width: 769px) { .mobile-toggle { display: none !important; } }
         .success-msg {
-          background: var(--teal-light); border: 1.5px solid var(--teal); color: var(--teal-dark);
+          background: var(--red-light); border: 1.5px solid var(--red); color: var(--red-dark);
           padding: 16px 24px; border-radius: 8px; font-weight: 500; text-align: center;
           animation: slideIn 0.4s ease;
         }
         @keyframes slideIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
         textarea.input-field { resize: vertical; min-height: 80px; }
-        .divider { width: 60px; height: 3px; background: var(--gold); border-radius: 2px; margin: 16px 0 24px; }
+        .divider { width: 60px; height: 3px; background: var(--red); border-radius: 2px; margin: 16px 0 24px; }
         .hamburger { background: none; border: none; cursor: pointer; padding: 8px; }
-        .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); margin: 5px 0; transition: 0.3s; border-radius: 1px; }
-        .affil-tag { display: inline-block; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 6px 16px; font-size: 12px; color: rgba(255,255,255,0.8); font-weight: 500; letter-spacing: 0.3px; }
+        .hamburger span { display: block; width: 24px; height: 2px; background: var(--black); margin: 5px 0; transition: 0.3s; border-radius: 1px; }
+        .affil-tag { display: inline-block; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; padding: 6px 16px; font-size: 12px; color: rgba(255,255,255,0.75); font-weight: 500; letter-spacing: 0.3px; }
         .phone-link { color: inherit; text-decoration: none; font-weight: 600; }
         .phone-link:hover { text-decoration: underline; }
       `}</style>
@@ -216,13 +219,12 @@ export default function AtaDentalSite() {
       {/* ─── NAV ─── */}
       <nav style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
-        background: "rgba(250,249,246,0.92)", backdropFilter: "blur(12px)",
-        borderBottom: "1px solid rgba(26,46,53,0.06)", padding: "0 24px",
+        background: "rgba(255,255,255,0.95)", backdropFilter: "blur(12px)",
+        borderBottom: "1px solid var(--grey-border)", padding: "0 24px",
       }}>
         <div style={{ maxWidth: 1140, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }} onClick={() => scrollTo("home")}>
-            <div style={{ width: 38, height: 38, borderRadius: "50%", background: "var(--teal)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontSize: 18, fontWeight: 700, fontFamily: "'DM Serif Display', serif" }}>A</div>
-            <span className="serif" style={{ fontSize: 22, color: "var(--teal-dark)" }}>Ata Dental</span>
+          <div style={{ cursor: "pointer", display: "flex", alignItems: "center" }} onClick={() => scrollTo("home")}>
+            <img src={LOGO_URL} alt="Ata Dental" style={{ height: 42, width: "auto" }} />
           </div>
           <div className="desktop-nav" style={{ display: "flex", gap: 24, alignItems: "center" }}>
             {NAV_ITEMS.map((item) => (
@@ -233,12 +235,12 @@ export default function AtaDentalSite() {
           <button className="mobile-toggle hamburger" onClick={() => setMobileMenu(!mobileMenu)}><span /><span /><span /></button>
         </div>
         {mobileMenu && (
-          <div style={{ background: "var(--white)", padding: "12px 24px 20px", borderTop: "1px solid #eee" }}>
+          <div style={{ background: "var(--white)", padding: "12px 24px 20px", borderTop: "1px solid var(--grey-border)" }}>
             {NAV_ITEMS.map((item) => (
               <button key={item} onClick={() => scrollTo(item.toLowerCase())} style={{
                 display: "block", width: "100%", textAlign: "left", padding: "12px 0",
                 border: "none", background: "none", fontSize: 15, fontWeight: 500,
-                color: activeSection === item.toLowerCase() ? "var(--teal)" : "var(--text-light)",
+                color: activeSection === item.toLowerCase() ? "var(--red)" : "var(--grey)",
                 cursor: "pointer", fontFamily: "inherit",
               }}>{item}</button>
             ))}
@@ -250,32 +252,32 @@ export default function AtaDentalSite() {
       <section id="home" className="hero-bg" style={{ paddingTop: 72 }}>
         <div style={{ padding: "120px 24px 100px", maxWidth: 1140, margin: "0 auto", position: "relative", zIndex: 1 }}>
           <FadeIn>
-            <p style={{ color: "var(--gold)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 20 }}>State-of-the-Art Dentistry</p>
+            <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 20 }}>State-of-the-Art Dentistry</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="serif hero-title" style={{ fontSize: 54, color: "white", lineHeight: 1.15, maxWidth: 660, marginBottom: 24 }}>Serving Families in Orlando Since 1989</h1>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p style={{ fontSize: 18, color: "rgba(255,255,255,0.8)", maxWidth: 540, lineHeight: 1.7, marginBottom: 40, fontWeight: 300 }}>
+            <p style={{ fontSize: 18, color: "rgba(255,255,255,0.75)", maxWidth: 540, lineHeight: 1.7, marginBottom: 40, fontWeight: 300 }}>
               For over 30 years, our family-owned practice has been focused on a single goal: providing superior, patient-focused dental care with cutting-edge technology.
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-              <button className="btn-primary" style={{ background: "var(--gold)", fontSize: 16, padding: "16px 40px" }} onClick={() => scrollTo("booking")}>Schedule Appointment</button>
-              <button className="btn-outline" style={{ color: "white", borderColor: "rgba(255,255,255,0.4)" }} onClick={() => scrollTo("services")}>Our Services</button>
+              <button className="btn-primary" style={{ fontSize: 16, padding: "16px 40px" }} onClick={() => scrollTo("booking")}>Schedule Appointment</button>
+              <button className="btn-outline" onClick={() => scrollTo("services")}>Our Services</button>
             </div>
           </FadeIn>
           <FadeIn delay={0.45}>
             <div style={{ display: "flex", gap: 16, marginTop: 40, flexWrap: "wrap" }}>
               {LOCATIONS.map((loc) => (
                 <a key={loc.name} href={`tel:${loc.phoneRaw}`} style={{
-                  display: "flex", alignItems: "center", gap: 10, background: "rgba(255,255,255,0.08)",
-                  border: "1px solid rgba(255,255,255,0.15)", borderRadius: 8, padding: "12px 20px",
+                  display: "flex", alignItems: "center", gap: 10, background: "rgba(255,255,255,0.06)",
+                  border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, padding: "12px 20px",
                   color: "white", textDecoration: "none", fontSize: 14, transition: "background 0.3s",
                 }}>
                   <span style={{ fontSize: 18 }}>📞</span>
-                  <span><strong>{loc.name}</strong><br /><span style={{ opacity: 0.8 }}>{loc.phone}</span></span>
+                  <span><strong>{loc.name}</strong><br /><span style={{ opacity: 0.75 }}>{loc.phone}</span></span>
                 </a>
               ))}
             </div>
@@ -285,7 +287,7 @@ export default function AtaDentalSite() {
               {[["30+", "Years of Care"], ["700+", "5-Star Reviews"], ["7", "Expert Dentists"], ["2", "Convenient Locations"]].map(([num, label]) => (
                 <div key={label}>
                   <div className="serif" style={{ fontSize: 36, color: "white" }}>{num}</div>
-                  <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", letterSpacing: 0.5, marginTop: 4 }}>{label}</div>
+                  <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", letterSpacing: 0.5, marginTop: 4 }}>{label}</div>
                 </div>
               ))}
             </div>
@@ -294,7 +296,7 @@ export default function AtaDentalSite() {
       </section>
 
       {/* ─── WHAT SETS US APART ─── */}
-      <section style={{ background: "var(--white)", borderBottom: "1px solid #eee" }}>
+      <section style={{ background: "var(--white)", borderBottom: "1px solid var(--grey-border)" }}>
         <div style={{ padding: "64px 24px", maxWidth: 1140, margin: "0 auto" }}>
           <div className="grid-3">
             {[
@@ -306,7 +308,7 @@ export default function AtaDentalSite() {
                 <div style={{ textAlign: "center", padding: "20px 12px" }}>
                   <div style={{ fontSize: 36, marginBottom: 14 }}>{item.icon}</div>
                   <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>{item.title}</h3>
-                  <p style={{ fontSize: 15, color: "var(--text-light)", lineHeight: 1.65 }}>{item.desc}</p>
+                  <p style={{ fontSize: 15, color: "var(--grey)", lineHeight: 1.65 }}>{item.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -315,10 +317,10 @@ export default function AtaDentalSite() {
       </section>
 
       {/* ─── ABOUT / DOCTORS ─── */}
-      <section id="about" style={{ background: "var(--warm)" }}>
+      <section id="about" style={{ background: "var(--grey-bg)" }}>
         <div className="section-pad">
           <FadeIn>
-            <p style={{ color: "var(--teal)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>About Our Practice</p>
+            <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>About Our Practice</p>
             <h2 className="serif" style={{ fontSize: 40, marginTop: 8 }}>Meet Our Dentists</h2>
             <div className="divider" />
           </FadeIn>
@@ -328,24 +330,24 @@ export default function AtaDentalSite() {
                 <div className="card" style={{ textAlign: "center", height: "100%" }}>
                   <div style={{
                     width: 72, height: 72, borderRadius: "50%", margin: "0 auto 16px",
-                    background: "linear-gradient(135deg, var(--teal-light), var(--warm))",
+                    background: "linear-gradient(135deg, var(--red-light), var(--grey-bg))",
                     display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: 30, border: "3px solid var(--teal)",
+                    fontSize: 30, border: "3px solid var(--red)",
                   }}>{doc.emoji}</div>
                   <h3 style={{ fontSize: 17, fontWeight: 700 }}>{doc.name}</h3>
-                  <p style={{ fontSize: 12, color: "var(--teal)", fontWeight: 600, letterSpacing: 0.4, margin: "4px 0 12px", textTransform: "uppercase" }}>{doc.role}</p>
-                  <p style={{ fontSize: 14, color: "var(--text-light)", lineHeight: 1.6 }}>{doc.bio}</p>
+                  <p style={{ fontSize: 12, color: "var(--red)", fontWeight: 600, letterSpacing: 0.4, margin: "4px 0 12px", textTransform: "uppercase" }}>{doc.role}</p>
+                  <p style={{ fontSize: 14, color: "var(--grey)", lineHeight: 1.6 }}>{doc.bio}</p>
                 </div>
               </FadeIn>
             ))}
           </div>
           <FadeIn delay={0.3}>
             <div style={{ marginTop: 48, textAlign: "center" }}>
-              <p style={{ fontSize: 14, fontWeight: 600, color: "var(--text-light)", marginBottom: 12, letterSpacing: 0.5, textTransform: "uppercase" }}>Professional Affiliations</p>
+              <p style={{ fontSize: 14, fontWeight: 600, color: "var(--grey)", marginBottom: 12, letterSpacing: 0.5, textTransform: "uppercase" }}>Professional Affiliations</p>
               <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
                 {AFFILIATIONS.map((a) => (
                   <span key={a} style={{
-                    background: "var(--teal-light)", color: "var(--teal-dark)", border: "1px solid rgba(26,122,109,0.2)",
+                    background: "var(--red-light)", color: "var(--red-dark)", border: "1px solid rgba(196,18,48,0.15)",
                     borderRadius: 20, padding: "6px 16px", fontSize: 12, fontWeight: 500,
                   }}>{a}</span>
                 ))}
@@ -359,26 +361,26 @@ export default function AtaDentalSite() {
       <section id="services">
         <div className="section-pad">
           <FadeIn>
-            <p style={{ color: "var(--teal)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>Comprehensive Care</p>
+            <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>Comprehensive Care</p>
             <h2 className="serif" style={{ fontSize: 40, marginTop: 8 }}>Our Services</h2>
             <div className="divider" />
           </FadeIn>
           <div className="grid-3">
             {SERVICES.map((svc, i) => (
               <FadeIn key={svc.title} delay={i * 0.05}>
-                <div className="card" style={{ borderLeft: "3px solid var(--gold)", height: "100%" }}>
+                <div className="card" style={{ borderLeft: "3px solid var(--red)", height: "100%" }}>
                   <div style={{ fontSize: 28, marginBottom: 12 }}>{svc.icon}</div>
                   <h3 style={{ fontSize: 17, fontWeight: 700, marginBottom: 8 }}>{svc.title}</h3>
-                  <p style={{ fontSize: 14, color: "var(--text-light)", lineHeight: 1.65 }}>{svc.desc}</p>
+                  <p style={{ fontSize: 14, color: "var(--grey)", lineHeight: 1.65 }}>{svc.desc}</p>
                 </div>
               </FadeIn>
             ))}
           </div>
           <FadeIn delay={0.2}>
-            <div style={{ marginTop: 48, background: "var(--teal-light)", borderRadius: 12, padding: 32, border: "1px solid rgba(26,122,109,0.15)" }}>
+            <div style={{ marginTop: 48, background: "var(--red-light)", borderRadius: 12, padding: 32, border: "1px solid rgba(196,18,48,0.12)" }}>
               <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>😴 Suffer From Dental Anxiety?</h3>
-              <p style={{ fontSize: 15, color: "var(--text-light)", lineHeight: 1.7, maxWidth: 700 }}>
-                We believe all patients should feel comfortable. If nervousness is standing between you and treatment, ask about our sedation options — including nitrous oxide and oral conscious sedation. Contact our offices in <a href="tel:+14078576501" style={{ color: "var(--teal)", fontWeight: 600 }}>Orlando</a> or <a href="tel:+14078705151" style={{ color: "var(--teal)", fontWeight: 600 }}>Kissimmee</a> to learn more.
+              <p style={{ fontSize: 15, color: "var(--grey)", lineHeight: 1.7, maxWidth: 700 }}>
+                We believe all patients should feel comfortable. If nervousness is standing between you and treatment, ask about our sedation options — including nitrous oxide and oral conscious sedation. Contact our offices in <a href="tel:+14078576501" style={{ color: "var(--red)", fontWeight: 600 }}>Orlando</a> or <a href="tel:+14078705151" style={{ color: "var(--red)", fontWeight: 600 }}>Kissimmee</a> to learn more.
               </p>
             </div>
           </FadeIn>
@@ -386,13 +388,13 @@ export default function AtaDentalSite() {
       </section>
 
       {/* ─── BOOKING ─── */}
-      <section id="booking" style={{ background: "var(--warm)" }}>
+      <section id="booking" style={{ background: "var(--grey-bg)" }}>
         <div className="section-pad">
           <FadeIn>
-            <p style={{ color: "var(--teal)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>Schedule a Visit</p>
+            <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>Schedule a Visit</p>
             <h2 className="serif" style={{ fontSize: 40, marginTop: 8 }}>Book an Appointment</h2>
             <div className="divider" />
-            <p style={{ fontSize: 17, color: "var(--text-light)", maxWidth: 560, lineHeight: 1.75, marginBottom: 40 }}>Choose your preferred office, date, and time. We'll confirm your appointment within one business day.</p>
+            <p style={{ fontSize: 17, color: "var(--grey)", maxWidth: 560, lineHeight: 1.75, marginBottom: 40 }}>Choose your preferred office, date, and time. We'll confirm your appointment within one business day.</p>
           </FadeIn>
           {bookingSubmitted ? (
             <FadeIn><div className="success-msg" style={{ maxWidth: 700 }}>✓ Thank you! Your appointment request has been submitted. We'll contact you shortly to confirm.</div></FadeIn>
@@ -442,17 +444,17 @@ export default function AtaDentalSite() {
       <section id="forms">
         <div className="section-pad">
           <FadeIn>
-            <p style={{ color: "var(--teal)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>New Patients</p>
+            <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>New Patients</p>
             <h2 className="serif" style={{ fontSize: 40, marginTop: 8 }}>Patient Intake Form</h2>
             <div className="divider" />
-            <p style={{ fontSize: 17, color: "var(--text-light)", maxWidth: 560, lineHeight: 1.75, marginBottom: 40 }}>Save time at your first visit by completing this form online. Your information is kept private and secure.</p>
+            <p style={{ fontSize: 17, color: "var(--grey)", maxWidth: 560, lineHeight: 1.75, marginBottom: 40 }}>Save time at your first visit by completing this form online. Your information is kept private and secure.</p>
           </FadeIn>
           {patientSubmitted ? (
             <FadeIn><div className="success-msg" style={{ maxWidth: 700 }}>✓ Your intake form has been submitted. We look forward to welcoming you!</div></FadeIn>
           ) : (
             <FadeIn delay={0.1}>
               <div className="card" style={{ maxWidth: 700 }}>
-                <h3 style={{ fontSize: 14, fontWeight: 700, marginBottom: 20, color: "var(--teal)", letterSpacing: 0.4, textTransform: "uppercase" }}>Personal Information</h3>
+                <h3 style={{ fontSize: 14, fontWeight: 700, marginBottom: 20, color: "var(--red)", letterSpacing: 0.4, textTransform: "uppercase" }}>Personal Information</h3>
                 <div className="grid-2" style={{ marginBottom: 20 }}>
                   <div><label className="input-label">First Name *</label><input className="input-field" placeholder="Jane" value={patientForm.firstName} onChange={(e) => setPatientForm({ ...patientForm, firstName: e.target.value })} /></div>
                   <div><label className="input-label">Last Name *</label><input className="input-field" placeholder="Smith" value={patientForm.lastName} onChange={(e) => setPatientForm({ ...patientForm, lastName: e.target.value })} /></div>
@@ -466,12 +468,12 @@ export default function AtaDentalSite() {
                   <div><label className="input-label">Insurance Provider</label><input className="input-field" placeholder="e.g. Delta Dental" value={patientForm.insurance} onChange={(e) => setPatientForm({ ...patientForm, insurance: e.target.value })} /></div>
                 </div>
                 <div style={{ marginBottom: 24 }}><label className="input-label">Mailing Address</label><input className="input-field" placeholder="123 Main St, City, FL ZIP" value={patientForm.address} onChange={(e) => setPatientForm({ ...patientForm, address: e.target.value })} /></div>
-                <h3 style={{ fontSize: 14, fontWeight: 700, margin: "32px 0 20px", color: "var(--teal)", letterSpacing: 0.4, textTransform: "uppercase" }}>Medical History</h3>
+                <h3 style={{ fontSize: 14, fontWeight: 700, margin: "32px 0 20px", color: "var(--red)", letterSpacing: 0.4, textTransform: "uppercase" }}>Medical History</h3>
                 <div style={{ marginBottom: 20 }}><label className="input-label">Known Allergies</label><textarea className="input-field" placeholder="List any allergies (medications, latex, etc.)" value={patientForm.allergies} onChange={(e) => setPatientForm({ ...patientForm, allergies: e.target.value })} /></div>
                 <div style={{ marginBottom: 20 }}><label className="input-label">Current Medications</label><textarea className="input-field" placeholder="List medications and dosages" value={patientForm.medications} onChange={(e) => setPatientForm({ ...patientForm, medications: e.target.value })} /></div>
                 <div style={{ marginBottom: 24 }}><label className="input-label">Medical Conditions</label><textarea className="input-field" placeholder="Any relevant conditions (diabetes, heart conditions, etc.)" value={patientForm.conditions} onChange={(e) => setPatientForm({ ...patientForm, conditions: e.target.value })} /></div>
-                <label style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 28, cursor: "pointer", fontSize: 14, color: "var(--text-light)", lineHeight: 1.5 }}>
-                  <input type="checkbox" checked={patientForm.consent} onChange={(e) => setPatientForm({ ...patientForm, consent: e.target.checked })} style={{ marginTop: 3, accentColor: "var(--teal)", width: 18, height: 18 }} />
+                <label style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 28, cursor: "pointer", fontSize: 14, color: "var(--grey)", lineHeight: 1.5 }}>
+                  <input type="checkbox" checked={patientForm.consent} onChange={(e) => setPatientForm({ ...patientForm, consent: e.target.checked })} style={{ marginTop: 3, accentColor: "var(--red)", width: 18, height: 18 }} />
                   <span>I consent to the collection of my personal and medical information for dental treatment at Ata Dental. I understand this information will be kept confidential.</span>
                 </label>
                 <button className="btn-primary" style={{ width: "100%", opacity: patientForm.consent ? 1 : 0.5, pointerEvents: patientForm.consent ? "auto" : "none" }} onClick={handlePatient}>Submit Intake Form</button>
@@ -482,21 +484,21 @@ export default function AtaDentalSite() {
       </section>
 
       {/* ─── CONTACT ─── */}
-      <section id="contact" style={{ background: "var(--teal)", color: "white" }}>
+      <section id="contact" style={{ background: "var(--black)", color: "white" }}>
         <div className="section-pad">
           <FadeIn>
-            <p style={{ color: "var(--gold)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>Get in Touch</p>
+            <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>Get in Touch</p>
             <h2 className="serif" style={{ fontSize: 40, marginTop: 8, color: "white" }}>Contact Us</h2>
-            <div style={{ width: 60, height: 3, background: "var(--gold)", borderRadius: 2, margin: "16px 0 32px" }} />
+            <div style={{ width: 60, height: 3, background: "var(--red)", borderRadius: 2, margin: "16px 0 32px" }} />
           </FadeIn>
 
           <div className="grid-2" style={{ marginBottom: 48 }}>
             {LOCATIONS.map((loc, i) => (
               <FadeIn key={loc.name} delay={i * 0.12}>
-                <div style={{ background: "rgba(255,255,255,0.08)", borderRadius: 12, padding: 28, border: "1px solid rgba(255,255,255,0.12)" }}>
-                  <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 16, color: "var(--gold)" }}>{loc.name}</h3>
-                  <p style={{ fontSize: 15, lineHeight: 1.8, opacity: 0.9 }}>📍 {loc.address}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{loc.city}</p>
-                  <p style={{ fontSize: 15, marginTop: 8, opacity: 0.9 }}>📞 <a href={`tel:${loc.phoneRaw}`} className="phone-link" style={{ color: "white" }}>{loc.phone}</a></p>
+                <div style={{ background: "rgba(255,255,255,0.05)", borderRadius: 12, padding: 28, border: "1px solid rgba(255,255,255,0.1)" }}>
+                  <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 16, color: "var(--red)" }}>{loc.name}</h3>
+                  <p style={{ fontSize: 15, lineHeight: 1.8, opacity: 0.85 }}>📍 {loc.address}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{loc.city}</p>
+                  <p style={{ fontSize: 15, marginTop: 8, opacity: 0.85 }}>📞 <a href={`tel:${loc.phoneRaw}`} className="phone-link" style={{ color: "white" }}>{loc.phone}</a></p>
                 </div>
               </FadeIn>
             ))}
@@ -506,26 +508,26 @@ export default function AtaDentalSite() {
             <div style={{ maxWidth: 600 }}>
               <h3 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20, color: "rgba(255,255,255,0.9)" }}>Send Us a Message</h3>
               {contactSubmitted ? (
-                <div className="success-msg" style={{ background: "rgba(255,255,255,0.1)", border: "1.5px solid rgba(255,255,255,0.3)", color: "white" }}>✓ Message sent! We'll get back to you soon.</div>
+                <div className="success-msg" style={{ background: "rgba(255,255,255,0.08)", border: "1.5px solid rgba(255,255,255,0.2)", color: "white" }}>✓ Message sent! We'll get back to you soon.</div>
               ) : (
                 <>
                   <div className="grid-2" style={{ marginBottom: 16 }}>
-                    <div><input className="input-field" placeholder="Your Name" value={contactForm.name} onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })} style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)", color: "white" }} /></div>
-                    <div><input className="input-field" type="email" placeholder="Your Email" value={contactForm.email} onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })} style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)", color: "white" }} /></div>
+                    <div><input className="input-field" placeholder="Your Name" value={contactForm.name} onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })} style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)", color: "white" }} /></div>
+                    <div><input className="input-field" type="email" placeholder="Your Email" value={contactForm.email} onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })} style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)", color: "white" }} /></div>
                   </div>
                   <div className="grid-2" style={{ marginBottom: 16 }}>
-                    <div><input className="input-field" type="tel" placeholder="Phone Number" value={contactForm.phone} onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })} style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)", color: "white" }} /></div>
+                    <div><input className="input-field" type="tel" placeholder="Phone Number" value={contactForm.phone} onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })} style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)", color: "white" }} /></div>
                     <div>
-                      <select className="input-field" value={contactForm.office} onChange={(e) => setContactForm({ ...contactForm, office: e.target.value })} style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)", color: "white" }}>
-                        <option value="Orlando" style={{ color: "#1a2e35" }}>Orlando Office</option>
-                        <option value="Kissimmee" style={{ color: "#1a2e35" }}>Kissimmee Office</option>
+                      <select className="input-field" value={contactForm.office} onChange={(e) => setContactForm({ ...contactForm, office: e.target.value })} style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)", color: "white" }}>
+                        <option value="Orlando" style={{ color: "#1a1a1a" }}>Orlando Office</option>
+                        <option value="Kissimmee" style={{ color: "#1a1a1a" }}>Kissimmee Office</option>
                       </select>
                     </div>
                   </div>
                   <div style={{ marginBottom: 16 }}>
-                    <textarea className="input-field" placeholder="Your Message" value={contactForm.message} onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })} style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)", color: "white", minHeight: 100 }} />
+                    <textarea className="input-field" placeholder="Your Message" value={contactForm.message} onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })} style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)", color: "white", minHeight: 100 }} />
                   </div>
-                  <button className="btn-primary" style={{ background: "var(--gold)", width: "100%" }} onClick={handleContact}>Send Message</button>
+                  <button className="btn-primary" style={{ width: "100%" }} onClick={handleContact}>Send Message</button>
                 </>
               )}
             </div>
@@ -533,7 +535,7 @@ export default function AtaDentalSite() {
 
           <FadeIn delay={0.3}>
             <div style={{ marginTop: 48 }}>
-              <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: 0.5, textTransform: "uppercase", opacity: 0.6, marginBottom: 12 }}>Professional Affiliations</p>
+              <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: 0.5, textTransform: "uppercase", opacity: 0.5, marginBottom: 12 }}>Professional Affiliations</p>
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                 {AFFILIATIONS.map((a) => <span key={a} className="affil-tag">{a}</span>)}
               </div>
@@ -543,7 +545,7 @@ export default function AtaDentalSite() {
       </section>
 
       {/* ─── FOOTER ─── */}
-      <footer style={{ background: "#0e3a34", color: "rgba(255,255,255,0.5)", padding: "28px 24px", fontSize: 13 }}>
+      <footer style={{ background: "#111111", color: "rgba(255,255,255,0.4)", padding: "28px 24px", fontSize: 13 }}>
         <div style={{ maxWidth: 1140, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
           <p>© 2026 Ata Dental. All rights reserved.</p>
           <div style={{ display: "flex", gap: 20 }}>
