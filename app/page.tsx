@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 
-const LOGO_URL = "https://einstein-clients.imgix.net/7805/415440/original.svg?1664215417=&auto=format&fit=max&w=361";
+const LOGO_URL = "/ATADental_Logo_NEG.png";
 
 const SERVICES = [
   { icon: "👑", title: "Dental Crowns", desc: "Restore damaged teeth in a single visit using advanced 3Shape TRIOS scanners and CAD/CAM technology." },
