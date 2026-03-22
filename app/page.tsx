@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 
-const LOGO_URL = "/ATADental_Logo_NEG.png";
+const LOGO_URL = "/ATADental_Logo_Horizontal_POS.png";
 
 const SERVICES = [
   { icon: "👑", title: "Dental Crowns", desc: "Restore damaged teeth in a single visit using advanced 3Shape TRIOS scanners and CAD/CAM technology." },
