@@ -24,7 +24,7 @@ const DOCTORS = [
   { name: "Jill E. Ata, DMD", role: "Dentist — Orthodontics", bio: "Also a Nova Southeastern graduate, Dr. Jill Ata brings specialized training in orthodontics, offering both fixed braces and functional appliances.", photo: "/DrJill.jpg" },
   { name: "Ireni Mikhail, DDS", role: "Dentist", bio: "Originally from Egypt, Dr. Mikhail is known for her meticulous attention to detail and dedication to patient education, ensuring every visit is comfortable and pain-free.", photo: "/DrMikhail.jpg" },
   { name: "Matthew Robin, DMD", role: "General Dentist", bio: "An Orlando native and member of the Academy of General Dentistry, Dr. Robin focuses on prevention and long-term systemic health.", photo: "/DrRobin.jpg" },
-  { name: "Javier Broche, DMD", role: "Dentist — Endodontics & Implants", bio: "A University of Florida College of Dentistry graduate, Dr. Broche carries on a family tradition as the third dentist in the Broche family, with a focus on endodontics and implants.", photo: "/DrBroche.jpeg" },
+  { name: "Javier Broche, DMD", role: "Dentist — Endodontics & Implants", bio: "A University of Florida College of Dentistry graduate, Dr. Broche carries on a family tradition as the third dentist in the Broche family, with a focus on endodontics and implants.", photo: "/DrBroche.JPG" },
   { name: "Johana Cobo, DDS", role: "Dentist", bio: "A Howard University graduate, Dr. Cobo is committed to lifelong learning and continually refines her skills through advanced continuing education programs.", photo: "/DrCobo.jpg" },
 ];
 
