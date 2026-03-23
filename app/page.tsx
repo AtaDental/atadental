@@ -19,14 +19,15 @@ const SERVICES = [
 ];
 
 const DOCTORS = [
-  { name: "Omar Ata, DDS", role: "Founder & Lead Dentist", bio: "Practicing in Greater South Orlando since 1981, Dr. Omar Ata was among the first in the region to adopt CAD/CAM restorative technology. He continually seeks new ways to elevate patient care.", emoji: "👨‍⚕️" },
-  { name: "Joseph A. Ata, DMD", role: "Dentist — Implant Specialist", bio: "A graduate of Nova Southeastern University, Dr. Joseph Ata joined the family practice in 2008 and has completed over 400 hours of advanced continuing education in implant dentistry.", emoji: "👨‍⚕️" },
-  { name: "Jill E. Ata, DMD", role: "Dentist — Orthodontics", bio: "Also a Nova Southeastern graduate, Dr. Jill Ata brings specialized training in orthodontics, offering both fixed braces and functional appliances.", emoji: "👩‍⚕️" },
-  { name: "Ireni Mikhail, DDS", role: "Dentist", bio: "Originally from Egypt, Dr. Mikhail is known for her meticulous attention to detail and dedication to patient education, ensuring every visit is comfortable and pain-free.", emoji: "👩‍⚕️" },
-  { name: "Matthew Robin, DMD", role: "General Dentist", bio: "An Orlando native and member of the Academy of General Dentistry, Dr. Robin focuses on prevention and long-term systemic health.", emoji: "👨‍⚕️" },
-  { name: "Javier Broche, DMD", role: "Dentist — Endodontics & Implants", bio: "A University of Florida College of Dentistry graduate, Dr. Broche carries on a family tradition as the third dentist in the Broche family, with a focus on endodontics and implants.", emoji: "👨‍⚕️" },
-  { name: "Johana Cobo, DDS", role: "Dentist", bio: "A Howard University graduate, Dr. Cobo is committed to lifelong learning and continually refines her skills through advanced continuing education programs.", emoji: "👩‍⚕️" },
+  { name: "Omar Ata, DDS", role: "Founder & Lead Dentist", bio: "Practicing in Greater South Orlando since 1981, Dr. Omar Ata was among the first in the region to adopt CAD/CAM restorative technology. He continually seeks new ways to elevate patient care.", photo: "/DrOmar.jpg" },
+  { name: "Joseph A. Ata, DMD", role: "Dentist — Implant Specialist", bio: "A graduate of Nova Southeastern University, Dr. Joseph Ata joined the family practice in 2008 and has completed over 400 hours of advanced continuing education in implant dentistry.", photo: "/DrJoe.jpg" },
+  { name: "Jill E. Ata, DMD", role: "Dentist — Orthodontics", bio: "Also a Nova Southeastern graduate, Dr. Jill Ata brings specialized training in orthodontics, offering both fixed braces and functional appliances.", photo: "/DrJill.jpg" },
+  { name: "Ireni Mikhail, DDS", role: "Dentist", bio: "Originally from Egypt, Dr. Mikhail is known for her meticulous attention to detail and dedication to patient education, ensuring every visit is comfortable and pain-free.", photo: "/DrMikhail.jpg" },
+  { name: "Matthew Robin, DMD", role: "General Dentist", bio: "An Orlando native and member of the Academy of General Dentistry, Dr. Robin focuses on prevention and long-term systemic health.", photo: "/DrRobin.jpg" },
+  { name: "Javier Broche, DMD", role: "Dentist — Endodontics & Implants", bio: "A University of Florida College of Dentistry graduate, Dr. Broche carries on a family tradition as the third dentist in the Broche family, with a focus on endodontics and implants.", photo: "/DrBroche.jpeg" },
+  { name: "Johana Cobo, DDS", role: "Dentist", bio: "A Howard University graduate, Dr. Cobo is committed to lifelong learning and continually refines her skills through advanced continuing education programs.", photo: "/DrCobo.jpg" },
 ];
+
 
 const LOCATIONS = [
   { name: "Orlando Office", address: "13512 S. John Young Pkwy", city: "Orlando, FL 32837", phone: "(407) 857-6501", phoneRaw: "+14078576501" },
