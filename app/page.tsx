@@ -28,7 +28,6 @@ const DOCTORS = [
   { name: "Johana Cobo, DDS", role: "Dentist", bio: "A Howard University graduate, Dr. Cobo is committed to lifelong learning and continually refines her skills through advanced continuing education programs.", photo: "/DrCobo.jpg" },
 ];
 
-
 const LOCATIONS = [
   { name: "Orlando Office", address: "13512 S. John Young Pkwy", city: "Orlando, FL 32837", phone: "(407) 857-6501", phoneRaw: "+14078576501" },
   { name: "Kissimmee Office", address: "3192 S. John Young Pkwy, Ste B", city: "Kissimmee, FL 34746", phone: "(407) 870-5151", phoneRaw: "+14078705151" },
@@ -329,12 +328,11 @@ export default function AtaDentalSite() {
             {DOCTORS.map((doc, i) => (
               <FadeIn key={doc.name} delay={i * 0.07}>
                 <div className="card" style={{ textAlign: "center", height: "100%" }}>
-                  <div style={{
-                    width: 72, height: 72, borderRadius: "50%", margin: "0 auto 16px",
-                    background: "linear-gradient(135deg, var(--red-light), var(--grey-bg))",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: 30, border: "3px solid var(--red)",
-                  }}>{doc.emoji}</div>
+                  <img src={doc.photo} alt={doc.name} style={{
+                    width: 110, height: 110, borderRadius: "50%", margin: "0 auto 16px",
+                    objectFit: "cover", objectPosition: "top center",
+                    border: "3px solid var(--red)", display: "block",
+                  }} />
                   <h3 style={{ fontSize: 17, fontWeight: 700 }}>{doc.name}</h3>
                   <p style={{ fontSize: 12, color: "var(--red)", fontWeight: 600, letterSpacing: 0.4, margin: "4px 0 12px", textTransform: "uppercase" }}>{doc.role}</p>
                   <p style={{ fontSize: 14, color: "var(--grey)", lineHeight: 1.6 }}>{doc.bio}</p>
