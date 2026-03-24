@@ -179,16 +179,19 @@ export default function AtaDentalSite() {
         .input-label { display: block; font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 6px; letter-spacing: 0.3px; }
         .section-pad { padding: 100px 24px; max-width: 1140px; margin: 0 auto; }
         .hero-bg {
-          background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 40%, #3a3a3a 100%);
+          background: #1a1a1a;
           position: relative; overflow: hidden;
         }
-        .hero-bg::before {
-          content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px;
-          background: radial-gradient(circle, rgba(196,18,48,0.12) 0%, transparent 70%); border-radius: 50%;
+        .hero-video {
+          position: absolute; top: 50%; left: 50%;
+          min-width: 100%; min-height: 100%;
+          width: auto; height: auto;
+          transform: translate(-50%, -50%);
+          z-index: 0; object-fit: cover;
         }
-        .hero-bg::after {
-          content: ''; position: absolute; bottom: -30%; left: -10%; width: 500px; height: 500px;
-          background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%); border-radius: 50%;
+        .hero-overlay {
+          position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+          background: rgba(0,0,0,0.55); z-index: 0;
         }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -250,6 +253,10 @@ export default function AtaDentalSite() {
 
       {/* ─── HERO ─── */}
       <section id="home" className="hero-bg" style={{ paddingTop: 72 }}>
+        <video className="hero-video" autoPlay muted loop playsInline poster="">
+          <source src="/AtaTrailer.m4v" type="video/mp4" />
+        </video>
+        <div className="hero-overlay" />
         <div style={{ padding: "120px 24px 100px", maxWidth: 1140, margin: "0 auto", position: "relative", zIndex: 1 }}>
           <FadeIn>
             <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 20 }}>State-of-the-Art Dentistry</p>
