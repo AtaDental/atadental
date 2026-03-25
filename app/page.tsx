@@ -19,13 +19,12 @@ const SERVICES = [
 ];
 
 const DOCTORS = [
-  { name: "Omar Ata, DDS", role: "Founder & Lead Dentist", bio: "Practicing in Greater South Orlando since 1981, Dr. Omar Ata was among the first in the region to adopt CAD/CAM restorative technology. He continually seeks new ways to elevate patient care.", photo: "/DrOmar.jpg" },
-  { name: "Joseph A. Ata, DMD", role: "Dentist — Implant Specialist", bio: "A graduate of Nova Southeastern University, Dr. Joseph Ata joined the family practice in 2008 and has completed over 400 hours of advanced continuing education in implant dentistry.", photo: "/DrJoe.jpg" },
-  { name: "Jill E. Ata, DMD", role: "Dentist — Orthodontics", bio: "Also a Nova Southeastern graduate, Dr. Jill Ata brings specialized training in orthodontics, offering both fixed braces and functional appliances.", photo: "/DrJill.jpg" },
-  { name: "Ireni Mikhail, DDS", role: "Dentist", bio: "Originally from Egypt, Dr. Mikhail is known for her meticulous attention to detail and dedication to patient education, ensuring every visit is comfortable and pain-free.", photo: "/DrMikhail.jpg" },
-  { name: "Matthew Robin, DMD", role: "General Dentist", bio: "An Orlando native and member of the Academy of General Dentistry, Dr. Robin focuses on prevention and long-term systemic health.", photo: "/DrRobin.jpg" },
-  { name: "Javier Broche, DMD", role: "Dentist — Endodontics & Implants", bio: "A University of Florida College of Dentistry graduate, Dr. Broche carries on a family tradition as the third dentist in the Broche family, with a focus on endodontics and implants.", photo: "/DrBroche.JPG" },
-  { name: "Johana Cobo, DDS", role: "Dentist", bio: "A Howard University graduate, Dr. Cobo is committed to lifelong learning and continually refines her skills through advanced continuing education programs.", photo: "/DrCobo.jpg" },
+  { name: "Omar Ata, DDS", role: "Original Founder", bio: "Practicing in Greater South Orlando since 1981, Dr. Omar Ata was among the first in the region to adopt CAD/CAM restorative technology. He continually seeks new ways to elevate patient care.", photo: "/DrOmar.jpg" },
+  { name: "Joseph A. Ata, DMD", role: "Practice Owner and Implant Expert", bio: "A graduate of Nova Southeastern University, Dr. Joseph Ata joined the family practice in 2008 and has completed over 400 hours of advanced continuing education in implant dentistry.", photo: "/DrJoe.jpg" },
+  { name: "Ireni Mikhail, DDS", role: "Complex Comprehensive Care and Endodontics", bio: "Originally from Egypt, Dr. Mikhail is known for her meticulous attention to detail and dedication to patient education, ensuring every visit is comfortable and pain-free.", photo: "/DrMikhail.jpg" },
+  { name: "Matthew Robin, DMD", role: "Orthodontic Aligners, Endodontics and General Care", bio: "An Orlando native and member of the Academy of General Dentistry, Dr. Robin focuses on prevention and long-term systemic health.", photo: "/DrRobin.jpg" },
+  { name: "Javier Broche, DMD", role: "Oral Surgery, Endodontics and General Care", bio: "A University of Florida College of Dentistry graduate, Dr. Broche carries on a family tradition as the third dentist in the Broche family, with a focus on endodontics and implants.", photo: "/DrBroche.JPG" },
+  { name: "Johana Cobo, DDS", role: "Orthodontic Aligners, Endodontics and Complex Care", bio: "A Howard University graduate, Dr. Cobo is committed to lifelong learning and continually refines her skills through advanced continuing education programs.", photo: "/DrCobo.jpg" },
 ];
 
 const LOCATIONS = [
@@ -291,7 +290,7 @@ export default function AtaDentalSite() {
           </FadeIn>
           <FadeIn delay={0.55}>
             <div style={{ display: "flex", gap: 48, marginTop: 64, flexWrap: "wrap" }}>
-              {[["30+", "Years of Care"], ["700+", "5-Star Reviews"], ["7", "Expert Dentists"], ["2", "Convenient Locations"]].map(([num, label]) => (
+              {[["30+", "Years of Care"], ["700+", "5-Star Reviews"], ["6", "Expert Dentists"], ["2", "Convenient Locations"]].map(([num, label]) => (
                 <div key={label}>
                   <div className="serif" style={{ fontSize: 36, color: "white" }}>{num}</div>
                   <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", letterSpacing: 0.5, marginTop: 4 }}>{label}</div>
