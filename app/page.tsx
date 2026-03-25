@@ -392,6 +392,48 @@ export default function AtaDentalSite() {
         </div>
       </section>
 
+      {/* ─── RESOURCES ─── */}
+      <section style={{ background: "var(--grey-bg)" }}>
+        <div className="section-pad">
+          <FadeIn>
+            <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>Patient Resources</p>
+            <h2 className="serif" style={{ fontSize: 40, marginTop: 8 }}>Affordable Care Options</h2>
+            <div className="divider" />
+            <p style={{ fontSize: 17, color: "var(--grey)", maxWidth: 600, lineHeight: 1.75, marginBottom: 40 }}>
+              No insurance? No problem. We offer flexible options to make quality dental care accessible for everyone.
+            </p>
+          </FadeIn>
+          <div className="grid-2">
+            <FadeIn delay={0.1}>
+              <div className="card" style={{ borderTop: "4px solid var(--red)", height: "100%" }}>
+                <div style={{ fontSize: 32, marginBottom: 14 }}>🏷️</div>
+                <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 8 }}>Membership Plan</h3>
+                <p style={{ fontSize: 14, color: "var(--grey)", lineHeight: 1.65, marginBottom: 16 }}>
+                  Our in-house discount membership provides comprehensive preventive care at just <strong style={{ color: "var(--black)" }}>$300/year</strong>. Includes 2 cleanings, 2 exams, routine X-rays, fluoride treatments, and 20% off all other procedures.
+                </p>
+                <p style={{ fontSize: 13, color: "var(--grey-light)", marginBottom: 20 }}>
+                  No insurance headaches. Enroll in 90 seconds with instant access to benefits.
+                </p>
+                <a href="/membership" style={{ color: "var(--red)", fontWeight: 600, fontSize: 15, textDecoration: "none" }}>Learn More →</a>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <div className="card" style={{ borderTop: "4px solid var(--red)", height: "100%" }}>
+                <div style={{ fontSize: 32, marginBottom: 14 }}>🍒</div>
+                <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 8 }}>Cherry Financing</h3>
+                <p style={{ fontSize: 14, color: "var(--grey)", lineHeight: 1.65, marginBottom: 16 }}>
+                  Flexible payment plans with <strong style={{ color: "var(--black)" }}>0% APR options</strong> through Cherry. No hard credit checks, no hidden fees. Split your treatment costs into easy monthly payments.
+                </p>
+                <p style={{ fontSize: 13, color: "var(--grey-light)", marginBottom: 20 }}>
+                  Apply in minutes and get approved for the care you need today.
+                </p>
+                <a href="/financing" style={{ color: "var(--red)", fontWeight: 600, fontSize: 15, textDecoration: "none" }}>Learn More →</a>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* ─── BOOKING ─── */}
       <section id="booking" style={{ background: "var(--grey-bg)" }}>
         <div className="section-pad">
