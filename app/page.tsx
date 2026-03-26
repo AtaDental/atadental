@@ -441,12 +441,43 @@ export default function AtaDentalSite() {
             <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>Schedule a Visit</p>
             <h2 className="serif" style={{ fontSize: 40, marginTop: 8 }}>Book an Appointment</h2>
             <div className="divider" />
-            <p style={{ fontSize: 17, color: "var(--grey)", maxWidth: 560, lineHeight: 1.75, marginBottom: 40 }}>Choose your preferred office, date, and time. We'll confirm your appointment within one business day.</p>
+            <p style={{ fontSize: 17, color: "var(--grey)", maxWidth: 560, lineHeight: 1.75, marginBottom: 40 }}>Choose your preferred office to book online instantly, or use the form below to request an appointment.</p>
+          </FadeIn>
+
+          {/* Direct booking cards */}
+          <FadeIn delay={0.1}>
+            <div className="grid-2" style={{ marginBottom: 48, maxWidth: 700 }}>
+              <a href="https://app.nexhealth.com/appt/ATA_Dental?lid=39277" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                <div className="card" style={{ textAlign: "center", borderTop: "4px solid var(--red)", cursor: "pointer" }}>
+                  <div style={{ fontSize: 32, marginBottom: 12 }}>🏢</div>
+                  <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>Orlando Office</h3>
+                  <p style={{ fontSize: 14, color: "var(--grey)", marginBottom: 4 }}>13512 S. John Young Pkwy</p>
+                  <p style={{ fontSize: 14, color: "var(--grey)", marginBottom: 16 }}>(407) 857-6501</p>
+                  <span className="btn-primary" style={{ width: "100%", textAlign: "center", display: "block" }}>Book Online</span>
+                  <a href="/locations/orlando" onClick={(e) => e.stopPropagation()} style={{ display: "block", marginTop: 12, color: "var(--red)", fontSize: 13, fontWeight: 600, textDecoration: "none" }}>View Office Details →</a>
+                </div>
+              </a>
+              <a href="https://app.nexhealth.com/appt/ATA_Dental?lid=39261" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                <div className="card" style={{ textAlign: "center", borderTop: "4px solid var(--red)", cursor: "pointer" }}>
+                  <div style={{ fontSize: 32, marginBottom: 12 }}>🏢</div>
+                  <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>Kissimmee Office</h3>
+                  <p style={{ fontSize: 14, color: "var(--grey)", marginBottom: 4 }}>3192 S. John Young Pkwy, Ste B</p>
+                  <p style={{ fontSize: 14, color: "var(--grey)", marginBottom: 16 }}>(407) 870-5151</p>
+                  <span className="btn-primary" style={{ width: "100%", textAlign: "center", display: "block" }}>Book Online</span>
+                  <a href="/locations/kissimmee" onClick={(e) => e.stopPropagation()} style={{ display: "block", marginTop: 12, color: "var(--red)", fontSize: 13, fontWeight: 600, textDecoration: "none" }}>View Office Details →</a>
+                </div>
+              </a>
+            </div>
+          </FadeIn>
+
+          {/* Contact form as alternative */}
+          <FadeIn delay={0.2}>
+            <p style={{ fontSize: 15, color: "var(--grey)", marginBottom: 20 }}>Or send us a request and we'll confirm your appointment within one business day:</p>
           </FadeIn>
           {bookingSubmitted ? (
             <FadeIn><div className="success-msg" style={{ maxWidth: 700 }}>✓ Thank you! Your appointment request has been submitted. We'll contact you shortly to confirm.</div></FadeIn>
           ) : (
-            <FadeIn delay={0.1}>
+            <FadeIn delay={0.25}>
               <div className="card" style={{ maxWidth: 700 }}>
                 <div className="grid-2" style={{ marginBottom: 20 }}>
                   <div><label className="input-label">Full Name *</label><input className="input-field" placeholder="Jane Smith" value={bookingForm.name} onChange={(e) => setBookingForm({ ...bookingForm, name: e.target.value })} /></div>
