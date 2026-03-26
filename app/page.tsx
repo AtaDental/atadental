@@ -40,7 +40,7 @@ const AFFILIATIONS = [
   "International Association for Orthodontics",
 ];
 
-const NAV_ITEMS = ["Home", "About", "Services", "Locations", "Forms", "Contact"];
+const NAV_ITEMS = ["Home", "About", "Services", "Locations", "Gallery", "Contact"];
 
 function useScrollSpy(ids) {
   const [active, setActive] = useState(ids[0]);
@@ -86,10 +86,8 @@ function FadeIn({ children, delay = 0, className = "" }) {
 export default function AtaDentalSite() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [bookingForm, setBookingForm] = useState({ name: "", email: "", phone: "", date: "", time: "", service: "", office: "", notes: "" });
-  const [patientForm, setPatientForm] = useState({ firstName: "", lastName: "", dob: "", email: "", phone: "", address: "", insurance: "", allergies: "", medications: "", conditions: "", consent: false });
   const [contactForm, setContactForm] = useState({ name: "", email: "", phone: "", message: "", office: "Orlando" });
   const [bookingSubmitted, setBookingSubmitted] = useState(false);
-  const [patientSubmitted, setPatientSubmitted] = useState(false);
   const [contactSubmitted, setContactSubmitted] = useState(false);
 
   const sectionIds = ["home", "about", "services", "booking", "forms", "contact"];
@@ -105,13 +103,6 @@ export default function AtaDentalSite() {
     setBookingSubmitted(true);
     setTimeout(() => setBookingSubmitted(false), 5000);
     setBookingForm({ name: "", email: "", phone: "", date: "", time: "", service: "", office: "", notes: "" });
-  };
-
-  const handlePatient = (e) => {
-    e.preventDefault();
-    setPatientSubmitted(true);
-    setTimeout(() => setPatientSubmitted(false), 5000);
-    setPatientForm({ firstName: "", lastName: "", dob: "", email: "", phone: "", address: "", insurance: "", allergies: "", medications: "", conditions: "", consent: false });
   };
 
   const handleContact = (e) => {
@@ -232,6 +223,8 @@ export default function AtaDentalSite() {
             {NAV_ITEMS.map((item) => (
               item === "Locations" ? (
                 <a key={item} href="/locations/orlando" className="nav-link" style={{ textDecoration: "none" }}>Locations</a>
+              ) : item === "Gallery" ? (
+                <a key={item} href="/gallery" className="nav-link" style={{ textDecoration: "none" }}>Gallery</a>
               ) : (
                 <button key={item} className={`nav-link ${activeSection === item.toLowerCase() ? "active" : ""}`} onClick={() => scrollTo(item.toLowerCase())}>{item}</button>
               )
@@ -249,6 +242,12 @@ export default function AtaDentalSite() {
                   fontSize: 15, fontWeight: 500, color: "var(--grey)",
                   textDecoration: "none", fontFamily: "inherit",
                 }}>Locations</a>
+              ) : item === "Gallery" ? (
+                <a key={item} href="/gallery" style={{
+                  display: "block", width: "100%", textAlign: "left", padding: "12px 0",
+                  fontSize: 15, fontWeight: 500, color: "var(--grey)",
+                  textDecoration: "none", fontFamily: "inherit",
+                }}>Gallery</a>
               ) : (
                 <button key={item} onClick={() => scrollTo(item.toLowerCase())} style={{
                   display: "block", width: "100%", textAlign: "left", padding: "12px 0",
@@ -524,49 +523,6 @@ export default function AtaDentalSite() {
                   <div><label className="input-label">Notes (optional)</label><input className="input-field" placeholder="Any concerns or questions" value={bookingForm.notes} onChange={(e) => setBookingForm({ ...bookingForm, notes: e.target.value })} /></div>
                 </div>
                 <button className="btn-primary" style={{ width: "100%" }} onClick={handleBooking}>Request Appointment</button>
-              </div>
-            </FadeIn>
-          )}
-        </div>
-      </section>
-
-      {/* ─── PATIENT FORMS ─── */}
-      <section id="forms">
-        <div className="section-pad">
-          <FadeIn>
-            <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>New Patients</p>
-            <h2 className="serif" style={{ fontSize: 40, marginTop: 8 }}>Patient Intake Form</h2>
-            <div className="divider" />
-            <p style={{ fontSize: 17, color: "var(--grey)", maxWidth: 560, lineHeight: 1.75, marginBottom: 40 }}>Save time at your first visit by completing this form online. Your information is kept private and secure.</p>
-          </FadeIn>
-          {patientSubmitted ? (
-            <FadeIn><div className="success-msg" style={{ maxWidth: 700 }}>✓ Your intake form has been submitted. We look forward to welcoming you!</div></FadeIn>
-          ) : (
-            <FadeIn delay={0.1}>
-              <div className="card" style={{ maxWidth: 700 }}>
-                <h3 style={{ fontSize: 14, fontWeight: 700, marginBottom: 20, color: "var(--red)", letterSpacing: 0.4, textTransform: "uppercase" }}>Personal Information</h3>
-                <div className="grid-2" style={{ marginBottom: 20 }}>
-                  <div><label className="input-label">First Name *</label><input className="input-field" placeholder="Jane" value={patientForm.firstName} onChange={(e) => setPatientForm({ ...patientForm, firstName: e.target.value })} /></div>
-                  <div><label className="input-label">Last Name *</label><input className="input-field" placeholder="Smith" value={patientForm.lastName} onChange={(e) => setPatientForm({ ...patientForm, lastName: e.target.value })} /></div>
-                </div>
-                <div className="grid-2" style={{ marginBottom: 20 }}>
-                  <div><label className="input-label">Date of Birth *</label><input className="input-field" type="date" value={patientForm.dob} onChange={(e) => setPatientForm({ ...patientForm, dob: e.target.value })} /></div>
-                  <div><label className="input-label">Email</label><input className="input-field" type="email" placeholder="jane@email.com" value={patientForm.email} onChange={(e) => setPatientForm({ ...patientForm, email: e.target.value })} /></div>
-                </div>
-                <div className="grid-2" style={{ marginBottom: 20 }}>
-                  <div><label className="input-label">Phone *</label><input className="input-field" type="tel" placeholder="(407) 555-0000" value={patientForm.phone} onChange={(e) => setPatientForm({ ...patientForm, phone: e.target.value })} /></div>
-                  <div><label className="input-label">Insurance Provider</label><input className="input-field" placeholder="e.g. Delta Dental" value={patientForm.insurance} onChange={(e) => setPatientForm({ ...patientForm, insurance: e.target.value })} /></div>
-                </div>
-                <div style={{ marginBottom: 24 }}><label className="input-label">Mailing Address</label><input className="input-field" placeholder="123 Main St, City, FL ZIP" value={patientForm.address} onChange={(e) => setPatientForm({ ...patientForm, address: e.target.value })} /></div>
-                <h3 style={{ fontSize: 14, fontWeight: 700, margin: "32px 0 20px", color: "var(--red)", letterSpacing: 0.4, textTransform: "uppercase" }}>Medical History</h3>
-                <div style={{ marginBottom: 20 }}><label className="input-label">Known Allergies</label><textarea className="input-field" placeholder="List any allergies (medications, latex, etc.)" value={patientForm.allergies} onChange={(e) => setPatientForm({ ...patientForm, allergies: e.target.value })} /></div>
-                <div style={{ marginBottom: 20 }}><label className="input-label">Current Medications</label><textarea className="input-field" placeholder="List medications and dosages" value={patientForm.medications} onChange={(e) => setPatientForm({ ...patientForm, medications: e.target.value })} /></div>
-                <div style={{ marginBottom: 24 }}><label className="input-label">Medical Conditions</label><textarea className="input-field" placeholder="Any relevant conditions (diabetes, heart conditions, etc.)" value={patientForm.conditions} onChange={(e) => setPatientForm({ ...patientForm, conditions: e.target.value })} /></div>
-                <label style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 28, cursor: "pointer", fontSize: 14, color: "var(--grey)", lineHeight: 1.5 }}>
-                  <input type="checkbox" checked={patientForm.consent} onChange={(e) => setPatientForm({ ...patientForm, consent: e.target.checked })} style={{ marginTop: 3, accentColor: "var(--red)", width: 18, height: 18 }} />
-                  <span>I consent to the collection of my personal and medical information for dental treatment at Ata Dental. I understand this information will be kept confidential.</span>
-                </label>
-                <button className="btn-primary" style={{ width: "100%", opacity: patientForm.consent ? 1 : 0.5, pointerEvents: patientForm.consent ? "auto" : "none" }} onClick={handlePatient}>Submit Intake Form</button>
               </div>
             </FadeIn>
           )}
