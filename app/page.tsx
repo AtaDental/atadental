@@ -40,7 +40,7 @@ const AFFILIATIONS = [
   "International Association for Orthodontics",
 ];
 
-const NAV_ITEMS = ["Home", "About", "Services", "Booking", "Forms", "Contact"];
+const NAV_ITEMS = ["Home", "About", "Services", "Locations", "Forms", "Contact"];
 
 function useScrollSpy(ids) {
   const [active, setActive] = useState(ids[0]);
@@ -230,7 +230,11 @@ export default function AtaDentalSite() {
           </div>
           <div className="desktop-nav" style={{ display: "flex", gap: 24, alignItems: "center" }}>
             {NAV_ITEMS.map((item) => (
-              <button key={item} className={`nav-link ${activeSection === item.toLowerCase() ? "active" : ""}`} onClick={() => scrollTo(item.toLowerCase())}>{item}</button>
+              item === "Locations" ? (
+                <a key={item} href="/locations/orlando" className="nav-link" style={{ textDecoration: "none" }}>Locations</a>
+              ) : (
+                <button key={item} className={`nav-link ${activeSection === item.toLowerCase() ? "active" : ""}`} onClick={() => scrollTo(item.toLowerCase())}>{item}</button>
+              )
             ))}
             <button className="btn-primary" style={{ padding: "10px 24px", fontSize: 13 }} onClick={() => scrollTo("booking")}>Book Now</button>
           </div>
@@ -239,12 +243,20 @@ export default function AtaDentalSite() {
         {mobileMenu && (
           <div style={{ background: "var(--white)", padding: "12px 24px 20px", borderTop: "1px solid var(--grey-border)" }}>
             {NAV_ITEMS.map((item) => (
-              <button key={item} onClick={() => scrollTo(item.toLowerCase())} style={{
-                display: "block", width: "100%", textAlign: "left", padding: "12px 0",
-                border: "none", background: "none", fontSize: 15, fontWeight: 500,
-                color: activeSection === item.toLowerCase() ? "var(--red)" : "var(--grey)",
-                cursor: "pointer", fontFamily: "inherit",
-              }}>{item}</button>
+              item === "Locations" ? (
+                <a key={item} href="/locations/orlando" style={{
+                  display: "block", width: "100%", textAlign: "left", padding: "12px 0",
+                  fontSize: 15, fontWeight: 500, color: "var(--grey)",
+                  textDecoration: "none", fontFamily: "inherit",
+                }}>Locations</a>
+              ) : (
+                <button key={item} onClick={() => scrollTo(item.toLowerCase())} style={{
+                  display: "block", width: "100%", textAlign: "left", padding: "12px 0",
+                  border: "none", background: "none", fontSize: 15, fontWeight: 500,
+                  color: activeSection === item.toLowerCase() ? "var(--red)" : "var(--grey)",
+                  cursor: "pointer", fontFamily: "inherit",
+                }}>{item}</button>
+              )
             ))}
           </div>
         )}
