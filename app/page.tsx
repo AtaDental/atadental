@@ -225,6 +225,8 @@ export default function AtaDentalSite() {
                 <a key={item} href="/locations/orlando" className="nav-link" style={{ textDecoration: "none" }}>Locations</a>
               ) : item === "Gallery" ? (
                 <a key={item} href="/gallery" className="nav-link" style={{ textDecoration: "none" }}>Gallery</a>
+              ) : item === "Services" ? (
+                <a key={item} href="/services" className="nav-link" style={{ textDecoration: "none" }}>Services</a>
               ) : (
                 <button key={item} className={`nav-link ${activeSection === item.toLowerCase() ? "active" : ""}`} onClick={() => scrollTo(item.toLowerCase())}>{item}</button>
               )
@@ -248,6 +250,12 @@ export default function AtaDentalSite() {
                   fontSize: 15, fontWeight: 500, color: "var(--grey)",
                   textDecoration: "none", fontFamily: "inherit",
                 }}>Gallery</a>
+              ) : item === "Services" ? (
+                <a key={item} href="/services" style={{
+                  display: "block", width: "100%", textAlign: "left", padding: "12px 0",
+                  fontSize: 15, fontWeight: 500, color: "var(--grey)",
+                  textDecoration: "none", fontFamily: "inherit",
+                }}>Services</a>
               ) : (
                 <button key={item} onClick={() => scrollTo(item.toLowerCase())} style={{
                   display: "block", width: "100%", textAlign: "left", padding: "12px 0",
