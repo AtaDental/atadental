@@ -1,5 +1,3 @@
-"use client";
-
 const LOGO_URL = "/ATADental_Logo_Horizontal_POS.png";
 const BOOKING_URL = "https://app.nexhealth.com/appt/ATA_Dental?lid=39277";
 
@@ -155,6 +153,10 @@ const DOCTORS: Record<string, {
     ],
   },
 };
+
+export function generateStaticParams() {
+  return Object.keys(DOCTORS).map((slug) => ({ slug }));
+}
 
 export default function DoctorPage({ params }: { params: { slug: string } }) {
   const doc = DOCTORS[params.slug];
