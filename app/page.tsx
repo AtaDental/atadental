@@ -19,12 +19,12 @@ const SERVICES = [
 ];
 
 const DOCTORS = [
-  { name: "Omar Ata, DDS", role: "Original Founder", bio: "Practicing in Greater South Orlando since 1981, Dr. Omar Ata was among the first in the region to adopt CAD/CAM restorative technology. He continually seeks new ways to elevate patient care.", photo: "/DrOmar.jpg" },
-  { name: "Joseph A. Ata, DMD", role: "Practice Owner and Implant Expert", bio: "A graduate of Nova Southeastern University, Dr. Joseph Ata joined the family practice in 2008 and has completed over 400 hours of advanced continuing education in implant dentistry.", photo: "/DrJoe.jpg" },
-  { name: "Ireni Mikhail, DDS", role: "Complex Comprehensive Care and Endodontics", bio: "Originally from Egypt, Dr. Mikhail is known for her meticulous attention to detail and dedication to patient education, ensuring every visit is comfortable and pain-free.", photo: "/DrMikhail.jpg" },
-  { name: "Matthew Robin, DMD", role: "Orthodontic Aligners, Endodontics and General Care", bio: "An Orlando native and member of the Academy of General Dentistry, Dr. Robin focuses on prevention and long-term systemic health.", photo: "/DrRobin.jpg" },
-  { name: "Javier Broche, DMD", role: "Oral Surgery, Endodontics and General Care", bio: "A University of Florida College of Dentistry graduate, Dr. Broche carries on a family tradition as the third dentist in the Broche family, with a focus on endodontics and implants.", photo: "/DrBroche.JPG" },
-  { name: "Johana Cobo, DDS", role: "Orthodontic Aligners, Endodontics and Complex Care", bio: "A Howard University graduate, Dr. Cobo is committed to lifelong learning and continually refines her skills through advanced continuing education programs.", photo: "/DrCobo.jpg" },
+  { name: "Omar Ata, DDS", role: "Original Founder", bio: "Practicing in Greater South Orlando since 1981, Dr. Omar Ata was among the first in the region to adopt CAD/CAM restorative technology. He continually seeks new ways to elevate patient care.", photo: "/DrOmar.jpg", slug: "dr-omar-ata" },
+  { name: "Joseph A. Ata, DMD", role: "Practice Owner and Implant Expert", bio: "A graduate of Nova Southeastern University, Dr. Joseph Ata joined the family practice in 2008 and has completed over 400 hours of advanced continuing education in implant dentistry.", photo: "/DrJoe.jpg", slug: "dr-joseph-ata" },
+  { name: "Ireni Mikhail, DDS", role: "Complex Comprehensive Care and Endodontics", bio: "Originally from Egypt, Dr. Mikhail is known for her meticulous attention to detail and dedication to patient education, ensuring every visit is comfortable and pain-free.", photo: "/DrMikhail.jpg", slug: "dr-ireni-mikhail" },
+  { name: "Matthew Robin, DMD", role: "Orthodontic Aligners, Endodontics and General Care", bio: "An Orlando native and member of the Academy of General Dentistry, Dr. Robin focuses on prevention and long-term systemic health.", photo: "/DrRobin.jpg", slug: "dr-matthew-robin" },
+  { name: "Javier Broche, DMD", role: "Oral Surgery, Endodontics and General Care", bio: "A University of Florida College of Dentistry graduate, Dr. Broche carries on a family tradition as the third dentist in the Broche family, with a focus on endodontics and implants.", photo: "/DrBroche.JPG", slug: "dr-javier-broche" },
+  { name: "Johana Cobo, DDS", role: "Orthodontic Aligners, Endodontics and Complex Care", bio: "A Howard University graduate, Dr. Cobo is committed to lifelong learning and continually refines her skills through advanced continuing education programs.", photo: "/DrCobo.jpg", slug: "dr-johana-cobo" },
 ];
 
 const LOCATIONS = [
@@ -360,7 +360,8 @@ export default function AtaDentalSite() {
                   }} />
                   <h3 style={{ fontSize: 17, fontWeight: 700 }}>{doc.name}</h3>
                   <p style={{ fontSize: 12, color: "var(--red)", fontWeight: 600, letterSpacing: 0.4, margin: "4px 0 12px", textTransform: "uppercase" }}>{doc.role}</p>
-                  <p style={{ fontSize: 14, color: "var(--grey)", lineHeight: 1.6 }}>{doc.bio}</p>
+                  <p style={{ fontSize: 14, color: "var(--grey)", lineHeight: 1.6, marginBottom: 16 }}>{doc.bio}</p>
+                  <a href={`/team/${doc.slug}`} style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, textDecoration: "none" }}>Full Bio →</a>
                 </div>
               </FadeIn>
             ))}
