@@ -158,8 +158,9 @@ export function generateStaticParams() {
   return Object.keys(DOCTORS).map((slug) => ({ slug }));
 }
 
-export default function DoctorPage({ params }: { params: { slug: string } }) {
-  const doc = DOCTORS[params.slug];
+export default async function DoctorPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const doc = DOCTORS[slug];
 
   if (!doc) {
     return (
