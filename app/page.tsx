@@ -184,13 +184,17 @@ export default function AtaDentalSite() {
         .hero-bg {
           background: #1a1a1a;
           position: relative; overflow: hidden;
+          min-height: 100vh;
         }
         .hero-video {
-          position: absolute; top: 50%; left: 50%;
-          min-width: 100%; min-height: 100%;
-          width: auto; height: auto;
-          transform: translate(-50%, -50%);
-          z-index: 0; object-fit: cover;
+          position: absolute; top: 0; left: 0;
+          width: 100%; height: 100%;
+          object-fit: cover; object-position: center center;
+          z-index: 0;
+        }
+        @media (max-width: 768px) {
+          .hero-bg { min-height: 85vh; }
+          .hero-video { object-position: 35% center; }
         }
         .hero-overlay {
           position: absolute; top: 0; left: 0; right: 0; bottom: 0;
