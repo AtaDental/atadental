@@ -85,6 +85,10 @@ function FadeIn({ children, delay = 0, className = "" }) {
 
 export default function AtaDentalSite() {
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const [locOpen, setLocOpen] = useState(false);
+  const moreRef = useRef(null);
+  const locRef = useRef(null);
   const [bookingForm, setBookingForm] = useState({ name: "", email: "", phone: "", date: "", time: "", service: "", office: "", notes: "" });
   const [contactForm, setContactForm] = useState({ name: "", email: "", phone: "", message: "", office: "Orlando" });
   const [bookingSubmitted, setBookingSubmitted] = useState(false);
@@ -97,6 +101,15 @@ export default function AtaDentalSite() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMobileMenu(false);
   };
+
+  useEffect(() => {
+    function handleClick(e) {
+      if (moreRef.current && !(moreRef.current as HTMLElement).contains(e.target)) setMoreOpen(false);
+      if (locRef.current && !(locRef.current as HTMLElement).contains(e.target)) setLocOpen(false);
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
 
   const handleBooking = (e) => {
     e.preventDefault();
@@ -220,51 +233,71 @@ export default function AtaDentalSite() {
             <img src={LOGO_URL} alt="Ata Dental" style={{ height: 42, width: "auto" }} />
           </div>
           <div className="desktop-nav" style={{ display: "flex", gap: 24, alignItems: "center" }}>
-            {NAV_ITEMS.map((item) => (
-              item === "Locations" ? (
-                <a key={item} href="/locations/orlando" className="nav-link" style={{ textDecoration: "none" }}>Locations</a>
-              ) : item === "Gallery" ? (
-                <a key={item} href="/gallery" className="nav-link" style={{ textDecoration: "none" }}>Gallery</a>
-              ) : item === "Services" ? (
-                <a key={item} href="/services" className="nav-link" style={{ textDecoration: "none" }}>Services</a>
-              ) : (
-                <button key={item} className={`nav-link ${activeSection === item.toLowerCase() ? "active" : ""}`} onClick={() => scrollTo(item.toLowerCase())}>{item}</button>
-              )
-            ))}
+            <button className={`nav-link ${activeSection === "home" ? "active" : ""}`} onClick={() => scrollTo("home")}>Home</button>
+            <a href="/services" className="nav-link" style={{ textDecoration: "none" }}>Services</a>
+
+            {/* Locations dropdown */}
+            <div ref={locRef} style={{ position: "relative" }}>
+              <button className="nav-link" style={{ display: "flex", alignItems: "center", gap: 4 }} onClick={() => { setLocOpen(!locOpen); setMoreOpen(false); }}>
+                Locations <span style={{ fontSize: 10, opacity: 0.6 }}>{locOpen ? "▲" : "▼"}</span>
+              </button>
+              {locOpen && (
+                <div style={{ position: "absolute", top: "calc(100% + 8px)", background: "white", border: "1px solid var(--grey-border)", borderRadius: 10, boxShadow: "0 8px 32px rgba(0,0,0,0.12)", minWidth: 180, zIndex: 200, overflow: "hidden" }}>
+                  {[{ label: "Orlando Office", href: "/locations/orlando" }, { label: "Kissimmee Office", href: "/locations/kissimmee" }].map(l => (
+                    <a key={l.href} href={l.href} style={{ display: "block", padding: "12px 18px", fontSize: 14, fontWeight: 500, color: "var(--grey)", textDecoration: "none", borderBottom: "1px solid var(--grey-border)" }}
+                      onMouseEnter={e => (e.currentTarget.style.background = "var(--red-light)", e.currentTarget.style.color = "var(--red)")}
+                      onMouseLeave={e => (e.currentTarget.style.background = "", e.currentTarget.style.color = "var(--grey)")}
+                    >{l.label}</a>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* More dropdown */}
+            <div ref={moreRef} style={{ position: "relative" }}>
+              <button className="nav-link" style={{ display: "flex", alignItems: "center", gap: 4 }} onClick={() => { setMoreOpen(!moreOpen); setLocOpen(false); }}>
+                More <span style={{ fontSize: 10, opacity: 0.6 }}>{moreOpen ? "▲" : "▼"}</span>
+              </button>
+              {moreOpen && (
+                <div style={{ position: "absolute", top: "calc(100% + 8px)", right: 0, background: "white", border: "1px solid var(--grey-border)", borderRadius: 10, boxShadow: "0 8px 32px rgba(0,0,0,0.12)", minWidth: 210, zIndex: 200, overflow: "hidden" }}>
+                  {[
+                    { label: "Insurance & Financing", href: "/insurance" },
+                    { label: "Membership Plan", href: "/membership" },
+                    { label: "Gallery", href: "/gallery" },
+                    { label: "New Patients", href: "/new-patients" },
+                    { label: "Contact", href: "/contact" },
+                  ].map((l, i, arr) => (
+                    <a key={l.href} href={l.href} style={{ display: "block", padding: "12px 18px", fontSize: 14, fontWeight: 500, color: "var(--grey)", textDecoration: "none", borderBottom: i < arr.length - 1 ? "1px solid var(--grey-border)" : "none" }}
+                      onMouseEnter={e => (e.currentTarget.style.background = "var(--red-light)", e.currentTarget.style.color = "var(--red)")}
+                      onMouseLeave={e => (e.currentTarget.style.background = "", e.currentTarget.style.color = "var(--grey)")}
+                    >{l.label}</a>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <button className="btn-primary" style={{ padding: "10px 24px", fontSize: 13 }} onClick={() => scrollTo("booking")}>Book Now</button>
           </div>
           <button className="mobile-toggle hamburger" onClick={() => setMobileMenu(!mobileMenu)}><span /><span /><span /></button>
         </div>
         {mobileMenu && (
           <div style={{ background: "var(--white)", padding: "12px 24px 20px", borderTop: "1px solid var(--grey-border)" }}>
-            {NAV_ITEMS.map((item) => (
-              item === "Locations" ? (
-                <a key={item} href="/locations/orlando" style={{
-                  display: "block", width: "100%", textAlign: "left", padding: "12px 0",
-                  fontSize: 15, fontWeight: 500, color: "var(--grey)",
-                  textDecoration: "none", fontFamily: "inherit",
-                }}>Locations</a>
-              ) : item === "Gallery" ? (
-                <a key={item} href="/gallery" style={{
-                  display: "block", width: "100%", textAlign: "left", padding: "12px 0",
-                  fontSize: 15, fontWeight: 500, color: "var(--grey)",
-                  textDecoration: "none", fontFamily: "inherit",
-                }}>Gallery</a>
-              ) : item === "Services" ? (
-                <a key={item} href="/services" style={{
-                  display: "block", width: "100%", textAlign: "left", padding: "12px 0",
-                  fontSize: 15, fontWeight: 500, color: "var(--grey)",
-                  textDecoration: "none", fontFamily: "inherit",
-                }}>Services</a>
-              ) : (
-                <button key={item} onClick={() => scrollTo(item.toLowerCase())} style={{
-                  display: "block", width: "100%", textAlign: "left", padding: "12px 0",
-                  border: "none", background: "none", fontSize: 15, fontWeight: 500,
-                  color: activeSection === item.toLowerCase() ? "var(--red)" : "var(--grey)",
-                  cursor: "pointer", fontFamily: "inherit",
-                }}>{item}</button>
-              )
+            <button onClick={() => scrollTo("home")} style={{ display: "block", width: "100%", textAlign: "left", padding: "12px 0", border: "none", background: "none", fontSize: 15, fontWeight: 500, color: "var(--grey)", cursor: "pointer", fontFamily: "inherit", borderBottom: "1px solid var(--grey-border)" }}>Home</button>
+            <a href="/services" style={{ display: "block", padding: "12px 0", fontSize: 15, fontWeight: 500, color: "var(--grey)", textDecoration: "none", borderBottom: "1px solid var(--grey-border)" }}>Services</a>
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--red)", padding: "14px 0 4px" }}>Locations</p>
+            <a href="/locations/orlando" style={{ display: "block", padding: "10px 0 10px 12px", fontSize: 14, fontWeight: 500, color: "var(--grey)", textDecoration: "none", borderBottom: "1px solid var(--grey-border)" }}>Orlando Office</a>
+            <a href="/locations/kissimmee" style={{ display: "block", padding: "10px 0 10px 12px", fontSize: 14, fontWeight: 500, color: "var(--grey)", textDecoration: "none", borderBottom: "1px solid var(--grey-border)" }}>Kissimmee Office</a>
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--red)", padding: "14px 0 4px" }}>More</p>
+            {[
+              { label: "Insurance & Financing", href: "/insurance" },
+              { label: "Membership Plan", href: "/membership" },
+              { label: "Gallery", href: "/gallery" },
+              { label: "New Patients", href: "/new-patients" },
+              { label: "Contact", href: "/contact" },
+            ].map(l => (
+              <a key={l.href} href={l.href} style={{ display: "block", padding: "10px 0 10px 12px", fontSize: 14, fontWeight: 500, color: "var(--grey)", textDecoration: "none", borderBottom: "1px solid var(--grey-border)" }}>{l.label}</a>
             ))}
+            <button className="btn-primary" style={{ marginTop: 16, width: "100%", textAlign: "center", padding: "14px", fontSize: 15 }} onClick={() => scrollTo("booking")}>Book Now</button>
           </div>
         )}
       </nav>
