@@ -193,8 +193,15 @@ export default function AtaDentalSite() {
           z-index: 0;
         }
         @media (max-width: 768px) {
-          .hero-bg { min-height: 85vh; }
-          .hero-video { object-position: 35% center; }
+          .hero-bg { min-height: 100svh; height: 100svh; }
+          .hero-video {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover; object-position: center center;
+          }
+          .hero-content { padding: 56px 20px 40px !important; }
+          .hero-stats { gap: 24px !important; margin-top: 32px !important; }
+          .hero-stats > div > div:first-child { font-size: 28px !important; }
         }
         .hero-overlay {
           position: absolute; top: 0; left: 0; right: 0; bottom: 0;
@@ -312,7 +319,7 @@ export default function AtaDentalSite() {
           <source src="/AtaTrailer.m4v" type="video/mp4" />
         </video>
         <div className="hero-overlay" />
-        <div style={{ padding: "120px 24px 100px", maxWidth: 1140, margin: "0 auto", position: "relative", zIndex: 1 }}>
+        <div className="hero-content" style={{ padding: "120px 24px 100px", maxWidth: 1140, margin: "0 auto", position: "relative", zIndex: 1 }}>
           <FadeIn>
             <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 20 }}>State-of-the-Art Dentistry</p>
           </FadeIn>
@@ -345,7 +352,7 @@ export default function AtaDentalSite() {
             </div>
           </FadeIn>
           <FadeIn delay={0.55}>
-            <div style={{ display: "flex", gap: 48, marginTop: 64, flexWrap: "wrap" }}>
+            <div className="hero-stats" style={{ display: "flex", gap: 48, marginTop: 64, flexWrap: "wrap" }}>
               {[["30+", "Years of Care"], ["700+", "5-Star Reviews"], ["6", "Expert Dentists"], ["2", "Convenient Locations"]].map(([num, label]) => (
                 <div key={label}>
                   <div className="serif" style={{ fontSize: 36, color: "white" }}>{num}</div>
