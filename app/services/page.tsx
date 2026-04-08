@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Nav from "../components/Nav";
 
 const LOGO_URL = "/ATADental_Logo_Horizontal_POS.png";
 const BOOKING_URL = "https://app.nexhealth.com/appt/ATA_Dental?lid=39277";
