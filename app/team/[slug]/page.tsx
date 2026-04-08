@@ -1,4 +1,4 @@
-const LOGO_URL = "/ATADental_Logo_Horizontal_POS.png";
+import Nav from "../../components/Nav";
 const BOOKING_URL = "https://app.nexhealth.com/appt/ATA_Dental?lid=39277";
 
 const DOCTORS: Record<string, {
@@ -192,20 +192,7 @@ export default async function DoctorPage({ params }: { params: Promise<{ slug: s
         .nav-link:hover { color: var(--red); }
       `}</style>
 
-      {/* Nav */}
-      <nav style={{ background: "rgba(255,255,255,0.97)", backdropFilter: "blur(12px)", borderBottom: "1px solid var(--grey-border)", padding: "0 24px", position: "sticky", top: 0, zIndex: 100 }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
-          <a href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-            <img src={LOGO_URL} alt="Ata Dental" style={{ height: 42 }} />
-          </a>
-          <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
-            <a href="/#about" className="nav-link">Our Team</a>
-            <a href="/services" className="nav-link">Services</a>
-            <a href="/" className="nav-link">← Home</a>
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: "10px 24px", fontSize: 14 }}>Book Appointment</a>
-          </div>
-        </div>
-      </nav>
+      <Nav activePage="team" />
 
       {/* Hero */}
       <section style={{ background: "var(--black)", padding: "72px 24px 64px" }}>

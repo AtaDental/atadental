@@ -1,6 +1,5 @@
 "use client";
-
-const LOGO_URL = "/ATADental_Logo_Horizontal_POS.png";
+import Nav from "../components/Nav";
 
 export default function MembershipPage() {
   return (
@@ -29,18 +28,7 @@ export default function MembershipPage() {
         .btn-outline:hover { background: var(--red); color: white; }
       `}</style>
 
-      {/* Nav */}
-      <nav style={{
-        background: "rgba(255,255,255,0.95)", backdropFilter: "blur(12px)",
-        borderBottom: "1px solid var(--grey-border)", padding: "0 24px",
-      }}>
-        <div style={{ maxWidth: 1140, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
-          <a href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-            <img src={LOGO_URL} alt="Ata Dental" style={{ height: 42 }} />
-          </a>
-          <a href="/" style={{ color: "var(--grey)", textDecoration: "none", fontWeight: 600, fontSize: 14 }}>← Back to Home</a>
-        </div>
-      </nav>
+      <Nav activePage="membership" />
 
       {/* Hero */}
       <section style={{ background: "var(--black)", padding: "80px 24px", textAlign: "center" }}>

@@ -217,21 +217,7 @@ export default function ServicesPage() {
         .chevron.open { transform: rotate(180deg); }
       `}</style>
 
-      {/* Nav */}
-      <nav style={{ background: "rgba(255,255,255,0.97)", backdropFilter: "blur(12px)", borderBottom: "1px solid var(--grey-border)", padding: "0 24px", position: "sticky", top: 0, zIndex: 100 }}>
-        <div style={{ maxWidth: 1140, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
-          <a href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-            <img src={LOGO_URL} alt="Ata Dental" style={{ height: 42 }} />
-          </a>
-          <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
-            <a href="/#services" className="nav-link">All Services</a>
-            <a href="/locations/orlando" className="nav-link">Orlando</a>
-            <a href="/locations/kissimmee" className="nav-link">Kissimmee</a>
-            <a href="/" className="nav-link">← Home</a>
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: "10px 24px", fontSize: 14 }}>Book Appointment</a>
-          </div>
-        </div>
-      </nav>
+      <Nav activePage="services" />
 
       {/* Hero */}
       <section style={{ background: "var(--black)", padding: "80px 24px 72px" }}>

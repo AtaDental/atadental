@@ -1,6 +1,5 @@
 "use client";
-
-const LOGO_URL = "/ATADental_Logo_Horizontal_POS.png";
+import Nav from "../../components/Nav";
 const BOOKING_URL = "https://app.nexhealth.com/appt/ATA_Dental?lid=39277";
 
 const HOURS = [
@@ -47,18 +46,7 @@ export default function OrlandoOfficePage() {
         .card { background: var(--white); border-radius: 12px; padding: 32px; box-shadow: var(--shadow); }
       `}</style>
 
-      {/* Nav */}
-      <nav style={{ background: "rgba(255,255,255,0.95)", backdropFilter: "blur(12px)", borderBottom: "1px solid var(--grey-border)", padding: "0 24px" }}>
-        <div style={{ maxWidth: 1140, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
-          <a href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-            <img src={LOGO_URL} alt="Ata Dental" style={{ height: 42 }} />
-          </a>
-          <div style={{ display: "flex", gap: 20, alignItems: "center" }}>
-            <a href="/locations/kissimmee" style={{ color: "var(--grey)", textDecoration: "none", fontWeight: 600, fontSize: 14 }}>Kissimmee Office</a>
-            <a href="/" style={{ color: "var(--grey)", textDecoration: "none", fontWeight: 600, fontSize: 14 }}>← Home</a>
-          </div>
-        </div>
-      </nav>
+      <Nav activePage="locations" />
 
       {/* Hero */}
       <section style={{ background: "var(--black)", padding: "80px 24px" }}>
