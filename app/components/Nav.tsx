@@ -9,7 +9,6 @@ const MORE_LINKS = [
   { label: "Membership Plan", href: "/membership" },
   { label: "New Patients", href: "/new-patients" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Contact", href: "/contact" },
 ];
 
 const LOCATION_LINKS = [
@@ -119,6 +118,7 @@ export default function Nav({ activePage }: { activePage?: string }) {
 
             <a href="/" className={`nav-link-shared ${activePage === "home" ? "active" : ""}`}>Home</a>
             <a href="/services" className={`nav-link-shared ${activePage === "services" ? "active" : ""}`}>Services</a>
+            <a href="/team" className={`nav-link-shared ${activePage === "team" ? "active" : ""}`}>Our Team</a>
 
             {/* Locations dropdown */}
             <div ref={locRef} style={{ position: "relative" }}>
@@ -144,6 +144,7 @@ export default function Nav({ activePage }: { activePage?: string }) {
               )}
             </div>
 
+            <a href="/contact" className={`nav-link-shared ${activePage === "contact" ? "active" : ""}`}>Contact</a>
             <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-nav-primary">Book Appointment</a>
           </div>
 
@@ -167,6 +168,8 @@ export default function Nav({ activePage }: { activePage?: string }) {
           <span className="mobile-section-label">Navigate</span>
           <a href="/" onClick={() => setMobileOpen(false)}>Home</a>
           <a href="/services" onClick={() => setMobileOpen(false)}>Services</a>
+          <a href="/team" onClick={() => setMobileOpen(false)}>Our Team</a>
+          <a href="/contact" onClick={() => setMobileOpen(false)}>Contact</a>
 
           <span className="mobile-section-label">Locations</span>
           <div className="mobile-sub">
