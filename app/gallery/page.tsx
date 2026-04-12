@@ -4,10 +4,10 @@ import Nav from "../components/Nav";
 
 const OFFICE_PHOTOS = [
   { src: "/OrlandoExterior.jpg", caption: "Orlando Office — Exterior", location: "Orlando" },
-  { src: "/KissimmeeExterior.jpg", caption: "Kissimmee Office — Exterior", location: "Kissimmee" },
   { src: "/Interior1.jpg", caption: "State-of-the-Art Treatment Suite", location: "Interior" },
   { src: "/Interior2.jpg", caption: "Modern, Welcoming Environment", location: "Interior" },
-  { src: "/TeamPhoto.jpg", caption: "Our Dedicated Team of Dentists", location: "Team" },
+  { src: "/CBCT.jpg", caption: "CBCT 3D Imaging Machine", location: "Technology" },
+  { src: "/DentalLab.jpg", caption: "In-House Dental Lab", location: "Technology" },
 ];
 
 export default function GalleryPage() {

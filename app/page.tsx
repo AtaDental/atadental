@@ -385,6 +385,41 @@ export default function AtaDentalSite() {
         </div>
       </section>
 
+      {/* ─── TECHNOLOGY ─── */}
+      <section style={{ background: "var(--grey-bg)", borderBottom: "1px solid var(--grey-border)" }}>
+        <div style={{ padding: "80px 24px", maxWidth: 1140, margin: "0 auto" }}>
+          <FadeIn>
+            <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 8 }}>Our Technology</p>
+            <h2 className="serif" style={{ fontSize: 40, marginBottom: 8 }}>State-of-the-Art Equipment</h2>
+            <div style={{ width: 60, height: 3, background: "var(--red)", borderRadius: 2, margin: "0 0 48px" }} />
+          </FadeIn>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+            <FadeIn delay={0.1}>
+              <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.1)" }}>
+                <img src="/CBCT.jpg" alt="CBCT 3D Imaging Machine" style={{ width: "100%", height: 280, objectFit: "cover", display: "block" }} />
+                <div style={{ padding: "24px 28px", background: "var(--white)" }}>
+                  <h3 style={{ fontSize: 19, fontWeight: 700, marginBottom: 8 }}>CBCT 3D Imaging</h3>
+                  <p style={{ fontSize: 14, color: "var(--grey)", lineHeight: 1.7 }}>
+                    Our cone beam CT scanner produces precise 3D images of your teeth, jaw, and surrounding structures — giving us a complete picture before we ever touch a tooth. This means more accurate diagnoses and better treatment outcomes.
+                  </p>
+                </div>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.1)" }}>
+                <img src="/DentalLab.jpg" alt="In-House Dental Lab" style={{ width: "100%", height: 280, objectFit: "cover", display: "block" }} />
+                <div style={{ padding: "24px 28px", background: "var(--white)" }}>
+                  <h3 style={{ fontSize: 19, fontWeight: 700, marginBottom: 8 }}>In-House Dental Lab</h3>
+                  <p style={{ fontSize: 14, color: "var(--grey)", lineHeight: 1.7 }}>
+                    Unlike most practices that outsource lab work, we mill and fabricate crowns, veneers, and restorations right here on-site. That means same-day crowns, faster turnaround, and total quality control over your final result.
+                  </p>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* ─── ABOUT / DOCTORS ─── */}
       <section id="about" style={{ background: "var(--grey-bg)" }}>
         <div className="section-pad">
