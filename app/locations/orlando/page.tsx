@@ -49,10 +49,8 @@ export default function OrlandoOfficePage() {
       <Nav activePage="locations" />
 
       {/* Hero */}
-      <section style={{ position: "relative", minHeight: 480, display: "flex", alignItems: "center", overflow: "hidden" }}>
-        <img src="/OrlandoExterior.jpg" alt="Ata Dental Orlando Office" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
-        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.58)" }} />
-        <div style={{ position: "relative", zIndex: 1, maxWidth: 900, margin: "0 auto", padding: "100px 24px 80px" }}>
+      <section style={{ background: "var(--black)", padding: "80px 24px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>Our Locations</p>
           <h1 className="serif" style={{ fontSize: 48, color: "white", marginBottom: 16 }}>Orlando Office</h1>
           <p style={{ fontSize: 18, color: "rgba(255,255,255,0.7)", lineHeight: 1.7, maxWidth: 600 }}>
@@ -143,24 +141,6 @@ export default function OrlandoOfficePage() {
               <p style={{ fontSize: 14, color: "var(--grey)", lineHeight: 1.6, marginBottom: 16 }}>Flexible payment plans with 0% APR options. No hard credit checks, no hidden fees.</p>
               <a href="/financing" style={{ color: "var(--red)", fontWeight: 600, fontSize: 14, textDecoration: "none" }}>Learn More →</a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Meet the Team */}
-      <section style={{ padding: "80px 24px" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "center" }}>
-          <div>
-            <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>Our Team</p>
-            <h2 className="serif" style={{ fontSize: 36, marginBottom: 12 }}>Experienced, Caring Dentists</h2>
-            <div style={{ width: 60, height: 3, background: "var(--red)", borderRadius: 2, marginBottom: 20 }} />
-            <p style={{ fontSize: 16, color: "var(--grey)", lineHeight: 1.75, marginBottom: 20 }}>
-              Our Orlando office is staffed by a team of dedicated specialists covering cosmetic, restorative, implant, and emergency dentistry. From your first visit to your final result, we're with you every step of the way.
-            </p>
-            <a href="/#about" style={{ color: "var(--red)", fontWeight: 600, fontSize: 15, textDecoration: "none" }}>Meet All Our Dentists →</a>
-          </div>
-          <div>
-            <img src="/TeamPhoto.jpg" alt="Ata Dental Team" style={{ width: "100%", borderRadius: 12, objectFit: "cover", height: 360, boxShadow: "0 12px 40px rgba(0,0,0,0.12)" }} />
           </div>
         </div>
       </section>
