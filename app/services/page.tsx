@@ -217,6 +217,20 @@ export default function ServicesPage() {
         .nav-link:hover { color: var(--red); }
         .chevron { transition: transform 0.3s; font-style: normal; display: inline-block; }
         .chevron.open { transform: rotate(180deg); }
+        .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .afford-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .services-hero-h1 { font-size: 52px; }
+        @media (max-width: 768px) {
+          .tech-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+          .afford-grid { grid-template-columns: 1fr !important; }
+          .services-hero-h1 { font-size: 34px !important; }
+          .service-header { padding: 20px 18px !important; }
+          .service-body { padding: 0 18px 20px !important; }
+          .tab-btn { padding: 10px 16px !important; font-size: 14px !important; }
+          .emergency-flex { flex-direction: column !important; text-align: center; }
+          .emergency-flex .btn-primary, .emergency-flex .btn-outline { width: 100%; text-align: center; }
+          .highlights-bar { gap: 16px !important; }
+        }
       `}</style>
 
       <Nav activePage="services" />
@@ -225,7 +239,7 @@ export default function ServicesPage() {
       <section style={{ background: "var(--black)", padding: "80px 24px 72px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>Comprehensive Dental Care</p>
-          <h1 className="serif" style={{ fontSize: 52, color: "white", lineHeight: 1.15, marginBottom: 20, maxWidth: 700 }}>
+          <h1 className="serif services-hero-h1" style={{ color: "white", lineHeight: 1.15, marginBottom: 20, maxWidth: 700 }}>
             Every Service You Need, Under One Roof
           </h1>
           <p style={{ fontSize: 18, color: "rgba(255,255,255,0.7)", lineHeight: 1.75, maxWidth: 620, marginBottom: 36 }}>
@@ -242,7 +256,7 @@ export default function ServicesPage() {
 
       {/* Quick highlights bar */}
       <section style={{ background: "var(--red)", padding: "20px 24px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", gap: 40, flexWrap: "wrap", justifyContent: "center" }}>
+        <div className="highlights-bar" style={{ maxWidth: 1100, margin: "0 auto", display: "flex", gap: 40, flexWrap: "wrap", justifyContent: "center" }}>
           {["In-House CAD/CAM Lab", "Same-Day Crowns Available", "Sedation Options", "Hablamos Español", "After-Hours Emergency Line"].map((item) => (
             <span key={item} style={{ color: "white", fontSize: 14, fontWeight: 600, display: "flex", alignItems: "center", gap: 8 }}>
               <span style={{ fontSize: 12 }}>✓</span> {item}
@@ -333,7 +347,7 @@ export default function ServicesPage() {
 
       {/* Emergency Banner */}
       <section style={{ background: "var(--red-light)", padding: "52px 24px", borderTop: "1px solid rgba(196,18,48,0.15)", borderBottom: "1px solid rgba(196,18,48,0.15)" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", alignItems: "center", gap: 28, flexWrap: "wrap" }}>
+        <div className="emergency-flex" style={{ maxWidth: 1100, margin: "0 auto", display: "flex", alignItems: "center", gap: 28, flexWrap: "wrap" }}>
           <div style={{ fontSize: 44 }}>🚨</div>
           <div style={{ flex: 1 }}>
             <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 6 }}>Dental Emergency?</h3>
@@ -351,7 +365,7 @@ export default function ServicesPage() {
       {/* Technology section */}
       <section style={{ background: "var(--grey-bg)", padding: "80px 24px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
+          <div className="tech-grid">
             <div>
               <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>Advanced Technology</p>
               <h2 className="serif" style={{ fontSize: 36, marginBottom: 16, lineHeight: 1.2 }}>State-of-the-Art In-House Capabilities</h2>
@@ -387,7 +401,7 @@ export default function ServicesPage() {
           <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>Making Care Accessible</p>
           <h2 className="serif" style={{ fontSize: 36, marginBottom: 8 }}>Flexible Payment Options</h2>
           <div style={{ width: 60, height: 3, background: "var(--red)", borderRadius: 2, marginBottom: 36 }} />
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+          <div className="afford-grid">
             {[
               { icon: "🏥", title: "Insurance", desc: "We work with a wide range of dental insurance plans. Our front desk team will help you maximize your benefits.", link: null },
               { icon: "💳", title: "Cherry Financing", desc: "Flexible payment plans with 0% APR options. No hard credit pull, quick approval, and no hidden fees.", link: "/financing" },
