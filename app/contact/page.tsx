@@ -1,20 +1,61 @@
 "use client";
-import { useState } from "react";
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import Nav from "../components/Nav";
 
 const BOOKING_URL_ORLANDO = "https://app.nexhealth.com/appt/ATA_Dental?lid=39277";
 const BOOKING_URL_KISSIMMEE = "https://app.nexhealth.com/appt/ATA_Dental?lid=39261";
 
-export default function ContactPage() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", office: "Orlando", message: "" });
-  const [submitted, setSubmitted] = useState(false);
+function ContactForm() {
+  const searchParams = useSearchParams();
+  const sent = searchParams.get("sent") === "true";
+  return (
+    <div className="card">
+      <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 24 }}>Send Us a Message</h2>
+      {sent && (
+        <div className="success-msg" style={{ marginBottom: 20 }}>
+          ✓ Message received! We'll be in touch shortly.
+        </div>
+      )}
+      <form
+        action="https://formsubmit.co/AtaDentalDesign@AtaDental.com"
+        method="POST"
+        style={{ display: "flex", flexDirection: "column", gap: 18 }}
+      >
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://atadental.vercel.app/contact?sent=true" />
+        <input type="hidden" name="_subject" value="New message from Ata Dental website" />
+        <div>
+          <label className="input-label">Full Name *</label>
+          <input className="input-field" name="name" required placeholder="Jane Smith" />
+        </div>
+        <div>
+          <label className="input-label">Email Address *</label>
+          <input className="input-field" name="email" type="email" required placeholder="jane@email.com" />
+        </div>
+        <div>
+          <label className="input-label">Phone Number</label>
+          <input className="input-field" name="phone" type="tel" placeholder="(407) 555-0123" />
+        </div>
+        <div>
+          <label className="input-label">Preferred Office</label>
+          <select className="input-field" name="office">
+            <option>Orlando</option>
+            <option>Kissimmee</option>
+            <option>No preference</option>
+          </select>
+        </div>
+        <div>
+          <label className="input-label">Message *</label>
+          <textarea className="input-field" name="message" required placeholder="How can we help you?" />
+        </div>
+        <button type="submit" className="btn-primary">Send Message</button>
+      </form>
+    </div>
+  );
+}
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setForm({ name: "", email: "", phone: "", office: "Orlando", message: "" });
-    setTimeout(() => setSubmitted(false), 6000);
-  };
+export default function ContactPage() {
 
   return (
     <div style={{ fontFamily: "'Libre Franklin', 'Segoe UI', sans-serif", color: "#1a1a1a", background: "#ffffff", minHeight: "100vh" }}>
@@ -71,37 +112,9 @@ export default function ContactPage() {
         <div className="contact-grid" style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "start" }}>
 
           {/* Contact form */}
-          <div className="card">
-            <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 24 }}>Send Us a Message</h2>
-            {submitted && <div className="success-msg">✓ Message sent! We'll be in touch shortly.</div>}
-            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-              <div>
-                <label className="input-label">Full Name *</label>
-                <input className="input-field" required value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="Jane Smith" />
-              </div>
-              <div>
-                <label className="input-label">Email Address *</label>
-                <input className="input-field" type="email" required value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} placeholder="jane@email.com" />
-              </div>
-              <div>
-                <label className="input-label">Phone Number</label>
-                <input className="input-field" type="tel" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} placeholder="(407) 555-0123" />
-              </div>
-              <div>
-                <label className="input-label">Preferred Office</label>
-                <select className="input-field" value={form.office} onChange={e => setForm({ ...form, office: e.target.value })}>
-                  <option>Orlando</option>
-                  <option>Kissimmee</option>
-                  <option>No preference</option>
-                </select>
-              </div>
-              <div>
-                <label className="input-label">Message *</label>
-                <textarea className="input-field" required value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} placeholder="How can we help you?" />
-              </div>
-              <button type="submit" className="btn-primary">Send Message</button>
-            </form>
-          </div>
+          <Suspense fallback={<div className="card" style={{ minHeight: 400 }} />}>
+            <ContactForm />
+          </Suspense>
 
           {/* Office info */}
           <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
