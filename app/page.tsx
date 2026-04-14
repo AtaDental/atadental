@@ -388,13 +388,13 @@ export default function AtaDentalSite() {
 
       {/* ─── TECHNOLOGY ─── */}
       <section style={{ background: "var(--grey-bg)", borderBottom: "1px solid var(--grey-border)" }}>
-        <div style={{ padding: "80px 24px", maxWidth: 1140, margin: "0 auto" }}>
+        <div className="section-pad" style={{ maxWidth: 1140, margin: "0 auto" }}>
           <FadeIn>
             <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 8 }}>Our Technology</p>
             <h2 className="serif" style={{ fontSize: 40, marginBottom: 8 }}>State-of-the-Art Equipment</h2>
             <div style={{ width: 60, height: 3, background: "var(--red)", borderRadius: 2, margin: "0 0 48px" }} />
           </FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+          <div className="grid-2" style={{ gap: 32 }}>
             <FadeIn delay={0.1}>
               <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.1)" }}>
                 <img src="/CBCT.jpg" alt="CBCT 3D Imaging Machine" style={{ width: "100%", height: 280, objectFit: "cover", display: "block" }} />
