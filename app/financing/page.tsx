@@ -26,6 +26,18 @@ export default function FinancingPage() {
           box-shadow: 0 4px 24px rgba(0,0,0,0.08); transition: all 0.35s; text-align: center;
         }
         .card:hover { transform: translateY(-4px); box-shadow: 0 12px 48px rgba(0,0,0,0.12); }
+        .fin-hero-h1 { font-size: 44px; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .apply-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        @media (max-width: 900px) {
+          .benefits-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 768px) {
+          .fin-hero-h1 { font-size: 30px !important; }
+          .benefits-grid { grid-template-columns: 1fr !important; }
+          .apply-grid { grid-template-columns: 1fr !important; }
+          .card { padding: 24px !important; }
+        }
       `}</style>
 
       <Nav activePage="financing" />
@@ -34,7 +46,7 @@ export default function FinancingPage() {
       <section style={{ background: "var(--black)", padding: "80px 24px", textAlign: "center" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
           <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>Patient Resources</p>
-          <h1 className="serif" style={{ fontSize: 44, color: "white", marginBottom: 16 }}>Cherry Financing</h1>
+          <h1 className="serif fin-hero-h1" style={{ color: "white", marginBottom: 16 }}>Cherry Financing</h1>
           <p style={{ fontSize: 18, color: "rgba(255,255,255,0.7)", lineHeight: 1.7 }}>
             Flexible payment plans so you can get the dental care you need today and pay over time.
           </p>
@@ -47,7 +59,7 @@ export default function FinancingPage() {
           <h2 className="serif" style={{ fontSize: 32, marginBottom: 8, textAlign: "center" }}>Why Choose Cherry?</h2>
           <div style={{ width: 60, height: 3, background: "var(--red)", borderRadius: 2, margin: "0 auto 48px" }} />
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+          <div className="benefits-grid">
             {[
               { icon: "✅", title: "No Hard Credit Checks", desc: "Apply without impacting your credit score. Quick approval process that takes just minutes." },
               { icon: "💳", title: "0% APR Options", desc: "Affordable monthly payments with zero interest financing options available on qualifying plans." },
@@ -101,7 +113,7 @@ export default function FinancingPage() {
           <p style={{ fontSize: 17, color: "var(--grey)", lineHeight: 1.7, marginBottom: 40 }}>
             Select your office location to begin the application process. You'll know if you're approved in just minutes.
           </p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+          <div className="apply-grid">
             <div className="card">
               <div style={{ fontSize: 32, marginBottom: 12 }}>🏢</div>
               <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>Orlando Office</h3>
