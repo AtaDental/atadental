@@ -191,26 +191,38 @@ export default async function DoctorPage({ params }: { params: Promise<{ slug: s
         .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
         .nav-link { color: var(--grey); text-decoration: none; font-weight: 600; font-size: 14px; }
         .nav-link:hover { color: var(--red); }
+        .doc-hero-inner { display: flex; gap: 56px; align-items: center; flex-wrap: wrap; }
+        .doc-hero-photo { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; object-position: center top; border: 4px solid var(--red); flex-shrink: 0; }
+        .doc-hero-h1 { font-size: 48px; }
+        .doc-layout { display: grid; grid-template-columns: 1fr 320px; gap: 60px; align-items: start; }
+        @media (max-width: 768px) {
+          .doc-hero-inner { gap: 28px; justify-content: center; text-align: center; }
+          .doc-hero-photo { width: 150px; height: 150px; }
+          .doc-hero-h1 { font-size: 30px !important; }
+          .doc-layout { grid-template-columns: 1fr !important; gap: 32px !important; }
+        }
       `}</style>
 
       <Nav activePage="team" />
 
       {/* Hero */}
-      <section style={{ background: "var(--black)", padding: "72px 24px 64px" }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto", display: "flex", gap: 56, alignItems: "center", flexWrap: "wrap" }}>
+      <section style={{ background: "var(--black)", padding: "64px 24px 64px" }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto 32px" }}>
+          <a href="/team" style={{ color: "rgba(255,255,255,0.5)", fontSize: 13, fontWeight: 600, textDecoration: "none", letterSpacing: 0.5 }}>
+            ← Our Team
+          </a>
+        </div>
+        <div style={{ maxWidth: 1000, margin: "0 auto" }} className="doc-hero-inner">
           <img
             src={doc.photo}
             alt={`${doc.name}, ${doc.credentials}`}
-            style={{
-              width: 200, height: 200, borderRadius: "50%", objectFit: "cover",
-              objectPosition: "center top", border: "4px solid var(--red)", flexShrink: 0,
-            }}
+            className="doc-hero-photo"
           />
           <div>
             <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>
               {doc.role}
             </p>
-            <h1 className="serif" style={{ fontSize: 48, color: "white", lineHeight: 1.1, marginBottom: 16 }}>
+            <h1 className="serif doc-hero-h1" style={{ color: "white", lineHeight: 1.1, marginBottom: 16 }}>
               {doc.name}, <span style={{ fontStyle: "italic" }}>{doc.credentials}</span>
             </h1>
             <p style={{ fontSize: 17, color: "rgba(255,255,255,0.65)", lineHeight: 1.7, maxWidth: 520, marginBottom: 28 }}>
@@ -225,7 +237,7 @@ export default async function DoctorPage({ params }: { params: Promise<{ slug: s
 
       {/* Main content */}
       <section style={{ padding: "72px 24px" }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 320px", gap: 60, alignItems: "start" }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto" }} className="doc-layout">
 
           {/* Bio */}
           <div>

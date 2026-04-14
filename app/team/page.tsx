@@ -78,12 +78,16 @@ export default function TeamPage() {
           transition: all 0.3s; font-family: inherit; text-decoration: none; display: inline-block;
         }
         .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
-        @media (max-width: 768px) {
-          .team-grid { grid-template-columns: 1fr !important; }
-          h1 { font-size: 36px !important; }
-        }
+        .team-hero-h1 { font-size: 50px; }
+        .doctor-photo { height: 260px; }
         @media (max-width: 1000px) {
           .team-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .doctor-photo { height: 300px; }
+        }
+        @media (max-width: 768px) {
+          .team-grid { grid-template-columns: 1fr !important; }
+          .team-hero-h1 { font-size: 34px !important; }
+          .doctor-photo { height: 320px; }
         }
       `}</style>
 
@@ -93,7 +97,7 @@ export default function TeamPage() {
       <section style={{ background: "var(--black)", padding: "80px 24px" }}>
         <div style={{ maxWidth: 960, margin: "0 auto" }}>
           <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>Our Practice</p>
-          <h1 className="serif" style={{ fontSize: 50, color: "white", marginBottom: 16 }}>Meet Our Dentists</h1>
+          <h1 className="serif team-hero-h1" style={{ color: "white", marginBottom: 16 }}>Meet Our Dentists</h1>
           <p style={{ fontSize: 18, color: "rgba(255,255,255,0.7)", lineHeight: 1.7, maxWidth: 620 }}>
             Six experienced specialists under one roof — covering everything from implants and cosmetics to orthodontics, endodontics, and emergency care.
           </p>
@@ -108,7 +112,8 @@ export default function TeamPage() {
               <div key={doc.slug} className="doctor-card">
                 <img
                   src={doc.photo} alt={`${doc.name}, ${doc.credentials}`}
-                  style={{ width: "100%", height: 260, objectFit: "cover", objectPosition: "center top", display: "block" }}
+                  className="doctor-photo"
+                  style={{ width: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
                 />
                 <div style={{ padding: "24px 24px 28px", flex: 1, display: "flex", flexDirection: "column" }}>
                   <p style={{ color: "var(--red)", fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 4 }}>{doc.role}</p>
