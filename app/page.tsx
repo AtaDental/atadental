@@ -108,9 +108,7 @@ export default function AtaDentalSite() {
   const [locOpen, setLocOpen] = useState(false);
   const moreRef = useRef(null);
   const locRef = useRef(null);
-  const [bookingForm, setBookingForm] = useState({ name: "", email: "", phone: "", date: "", time: "", service: "", office: "", notes: "" });
   const [contactForm, setContactForm] = useState({ name: "", email: "", phone: "", message: "", office: "Orlando" });
-  const [bookingSubmitted, setBookingSubmitted] = useState(false);
   const [contactSubmitted, setContactSubmitted] = useState(false);
 
   const sectionIds = ["home", "about", "services", "booking", "forms", "contact"];
@@ -129,13 +127,6 @@ export default function AtaDentalSite() {
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
-
-  const handleBooking = (e) => {
-    e.preventDefault();
-    setBookingSubmitted(true);
-    setTimeout(() => setBookingSubmitted(false), 5000);
-    setBookingForm({ name: "", email: "", phone: "", date: "", time: "", service: "", office: "", notes: "" });
-  };
 
   const handleContact = (e) => {
     e.preventDefault();
@@ -444,38 +435,42 @@ export default function AtaDentalSite() {
         <div className="section-pad">
           <FadeIn>
             <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>About Our Practice</p>
-            <h2 className="serif" style={{ fontSize: 40, marginTop: 8 }}>Meet Our Dentists</h2>
+            <h2 className="serif" style={{ fontSize: 40, marginTop: 8 }}>Six Specialists, Two Locations</h2>
             <div className="divider" />
+            <p style={{ fontSize: 17, color: "var(--grey)", maxWidth: 620, lineHeight: 1.75, marginBottom: 40 }}>
+              Our team of six experienced dentists covers the full spectrum of care — from routine cleanings and orthodontics to dental implants, oral surgery, and emergency treatment. Serving South Orlando since 1981.
+            </p>
           </FadeIn>
-          <div className="doc-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
-            {DOCTORS.map((doc, i) => (
-              <FadeIn key={doc.name} delay={i * 0.07}>
-                <div className="card" style={{ textAlign: "center", height: "100%" }}>
-                  <img src={doc.photo} alt={doc.name} style={{
-                    width: 110, height: 110, borderRadius: "50%", margin: "0 auto 16px",
-                    objectFit: "cover", objectPosition: "center center",
-                    border: "3px solid var(--red)", display: "block",
-                  }} />
-                  <h3 style={{ fontSize: 17, fontWeight: 700 }}>{doc.name}</h3>
-                  <p style={{ fontSize: 12, color: "var(--red)", fontWeight: 600, letterSpacing: 0.4, margin: "4px 0 12px", textTransform: "uppercase" }}>{doc.role}</p>
-                  <p style={{ fontSize: 14, color: "var(--grey)", lineHeight: 1.6, marginBottom: 16 }}>{doc.bio}</p>
-                  <a href={`/team/${doc.slug}`} style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, textDecoration: "none" }}>Full Bio →</a>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-          <FadeIn delay={0.3}>
-            <div style={{ marginTop: 48, textAlign: "center" }}>
-              <p style={{ fontSize: 14, fontWeight: 600, color: "var(--grey)", marginBottom: 12, letterSpacing: 0.5, textTransform: "uppercase" }}>Professional Affiliations</p>
-              <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
-                {AFFILIATIONS.map((a) => (
-                  <span key={a} style={{
-                    background: "var(--red-light)", color: "var(--red-dark)", border: "1px solid rgba(196,18,48,0.15)",
-                    borderRadius: 20, padding: "6px 16px", fontSize: 12, fontWeight: 500,
-                  }}>{a}</span>
-                ))}
-              </div>
+          <FadeIn delay={0.1}>
+            <div className="grid-3" style={{ marginBottom: 40 }}>
+              {DOCTORS.slice(0, 3).map((doc) => (
+                <a key={doc.slug} href={`/team/${doc.slug}`} style={{ textDecoration: "none" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 16, background: "var(--white)", borderRadius: 12, padding: "18px 20px", boxShadow: "var(--shadow)", transition: "box-shadow 0.2s" }}>
+                    <img src={doc.photo} alt={doc.name} style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover", objectPosition: "center top", border: "2px solid var(--red)", flexShrink: 0 }} />
+                    <div>
+                      <p style={{ fontWeight: 700, fontSize: 15, color: "var(--black)" }}>{doc.name}</p>
+                      <p style={{ fontSize: 12, color: "var(--red)", fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.3, marginTop: 2 }}>{doc.role}</p>
+                    </div>
+                  </div>
+                </a>
+              ))}
             </div>
+            <div className="grid-3" style={{ marginBottom: 48 }}>
+              {DOCTORS.slice(3).map((doc) => (
+                <a key={doc.slug} href={`/team/${doc.slug}`} style={{ textDecoration: "none" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 16, background: "var(--white)", borderRadius: 12, padding: "18px 20px", boxShadow: "var(--shadow)", transition: "box-shadow 0.2s" }}>
+                    <img src={doc.photo} alt={doc.name} style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover", objectPosition: "center top", border: "2px solid var(--red)", flexShrink: 0 }} />
+                    <div>
+                      <p style={{ fontWeight: 700, fontSize: 15, color: "var(--black)" }}>{doc.name}</p>
+                      <p style={{ fontSize: 12, color: "var(--red)", fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.3, marginTop: 2 }}>{doc.role}</p>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <a href="/team" className="btn-primary">Meet Our Full Team →</a>
           </FadeIn>
         </div>
       </section>
@@ -559,12 +554,10 @@ export default function AtaDentalSite() {
             <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>Schedule a Visit</p>
             <h2 className="serif" style={{ fontSize: 40, marginTop: 8 }}>Book an Appointment</h2>
             <div className="divider" />
-            <p style={{ fontSize: 17, color: "var(--grey)", maxWidth: 560, lineHeight: 1.75, marginBottom: 40 }}>Choose your preferred office to book online instantly, or use the form below to request an appointment.</p>
+            <p style={{ fontSize: 17, color: "var(--grey)", maxWidth: 560, lineHeight: 1.75, marginBottom: 40 }}>Choose your preferred location to book online instantly — or <a href="/contact" style={{ color: "var(--red)", fontWeight: 600, textDecoration: "none" }}>send us a message</a> and we'll get back to you within one business day.</p>
           </FadeIn>
-
-          {/* Direct booking cards */}
           <FadeIn delay={0.1}>
-            <div className="grid-2" style={{ marginBottom: 48, maxWidth: 700 }}>
+            <div className="grid-2" style={{ maxWidth: 700 }}>
               <a href="https://app.nexhealth.com/appt/ATA_Dental?lid=39277" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
                 <div className="card" style={{ textAlign: "center", borderTop: "4px solid var(--red)", cursor: "pointer" }}>
                   <div style={{ fontSize: 32, marginBottom: 12 }}>🏢</div>
@@ -587,52 +580,6 @@ export default function AtaDentalSite() {
               </a>
             </div>
           </FadeIn>
-
-          {/* Contact form as alternative */}
-          <FadeIn delay={0.2}>
-            <p style={{ fontSize: 15, color: "var(--grey)", marginBottom: 20 }}>Or send us a request and we'll confirm your appointment within one business day:</p>
-          </FadeIn>
-          {bookingSubmitted ? (
-            <FadeIn><div className="success-msg" style={{ maxWidth: 700 }}>✓ Thank you! Your appointment request has been submitted. We'll contact you shortly to confirm.</div></FadeIn>
-          ) : (
-            <FadeIn delay={0.25}>
-              <div className="card" style={{ maxWidth: 700 }}>
-                <div className="grid-2" style={{ marginBottom: 20 }}>
-                  <div><label className="input-label">Full Name *</label><input className="input-field" placeholder="Jane Smith" value={bookingForm.name} onChange={(e) => setBookingForm({ ...bookingForm, name: e.target.value })} /></div>
-                  <div><label className="input-label">Email *</label><input className="input-field" type="email" placeholder="jane@email.com" value={bookingForm.email} onChange={(e) => setBookingForm({ ...bookingForm, email: e.target.value })} /></div>
-                </div>
-                <div className="grid-2" style={{ marginBottom: 20 }}>
-                  <div><label className="input-label">Phone *</label><input className="input-field" type="tel" placeholder="(407) 555-0000" value={bookingForm.phone} onChange={(e) => setBookingForm({ ...bookingForm, phone: e.target.value })} /></div>
-                  <div><label className="input-label">Office *</label>
-                    <select className="input-field" value={bookingForm.office} onChange={(e) => setBookingForm({ ...bookingForm, office: e.target.value })}>
-                      <option value="">Select an office</option>
-                      <option value="Orlando">Orlando — (407) 857-6501</option>
-                      <option value="Kissimmee">Kissimmee — (407) 870-5151</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="grid-2" style={{ marginBottom: 20 }}>
-                  <div><label className="input-label">Service</label>
-                    <select className="input-field" value={bookingForm.service} onChange={(e) => setBookingForm({ ...bookingForm, service: e.target.value })}>
-                      <option value="">Select a service</option>
-                      {SERVICES.map((s) => <option key={s.title} value={s.title}>{s.title}</option>)}
-                    </select>
-                  </div>
-                  <div><label className="input-label">Preferred Date *</label><input className="input-field" type="date" value={bookingForm.date} onChange={(e) => setBookingForm({ ...bookingForm, date: e.target.value })} /></div>
-                </div>
-                <div className="grid-2" style={{ marginBottom: 20 }}>
-                  <div><label className="input-label">Preferred Time</label>
-                    <select className="input-field" value={bookingForm.time} onChange={(e) => setBookingForm({ ...bookingForm, time: e.target.value })}>
-                      <option value="">Select a time</option>
-                      {["8:00 AM","9:00 AM","10:00 AM","11:00 AM","12:00 PM","1:00 PM","2:00 PM","3:00 PM","4:00 PM","5:00 PM"].map((t) => <option key={t} value={t}>{t}</option>)}
-                    </select>
-                  </div>
-                  <div><label className="input-label">Notes (optional)</label><input className="input-field" placeholder="Any concerns or questions" value={bookingForm.notes} onChange={(e) => setBookingForm({ ...bookingForm, notes: e.target.value })} /></div>
-                </div>
-                <button className="btn-primary" style={{ width: "100%" }} onClick={handleBooking}>Request Appointment</button>
-              </div>
-            </FadeIn>
-          )}
         </div>
       </section>
 
