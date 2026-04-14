@@ -43,6 +43,24 @@ const AFFILIATIONS = [
 
 const NAV_ITEMS = ["Home", "About", "Services", "Locations", "Gallery", "Contact"];
 
+const REVIEWS = [
+  {
+    name: "Joli Doodles",
+    year: "2023",
+    quote: "They didn't make me feel uncomfortable, ashamed, or anything less than valuable, and this was my first time going to them. I'm so thankful I found them! Amazing customer service skills, amazing dental skills — I can't recommend enough.",
+  },
+  {
+    name: "Alexia Holt",
+    year: "2022",
+    quote: "This dentist office is truly the best experience I've had. They are so polite and thorough with explaining things — they take their time to make sure you understand the procedure or your treatment plan. Hands down the best doctor's office!",
+  },
+  {
+    name: "Frances Garcia",
+    year: "2023",
+    quote: "It's always a pleasure coming to the office. From the moment I step in to the moment I leave, everyone is so pleasant. My entire family are patients as well.",
+  },
+];
+
 function useScrollSpy(ids) {
   const [active, setActive] = useState(ids[0]);
   useEffect(() => {
@@ -615,6 +633,43 @@ export default function AtaDentalSite() {
               </div>
             </FadeIn>
           )}
+        </div>
+      </section>
+
+      {/* ─── REVIEWS ─── */}
+      <section style={{ background: "var(--white)", borderTop: "1px solid var(--grey-border)" }}>
+        <div className="section-pad">
+          <FadeIn>
+            <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>Patient Reviews</p>
+            <h2 className="serif" style={{ fontSize: 38, marginBottom: 8 }}>What Our Patients Say</h2>
+            <div className="divider" />
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 40 }}>
+              <div style={{ display: "flex", gap: 3 }}>
+                {[...Array(5)].map((_, i) => <span key={i} style={{ color: "#f4b942", fontSize: 22 }}>★</span>)}
+              </div>
+              <span style={{ fontSize: 15, color: "var(--grey)", fontWeight: 500 }}>5.0 · Rated on Google</span>
+              <a href="https://www.google.com/search?q=Ata+Dental+Orlando+reviews" target="_blank" rel="noopener noreferrer" style={{ marginLeft: 8, color: "var(--red)", fontSize: 13, fontWeight: 600, textDecoration: "none" }}>See all reviews →</a>
+            </div>
+          </FadeIn>
+          <div className="grid-3">
+            {REVIEWS.map((r, i) => (
+              <FadeIn key={r.name} delay={i * 0.12}>
+                <div style={{ background: "var(--grey-bg)", borderRadius: 14, padding: "32px 28px", height: "100%", display: "flex", flexDirection: "column", gap: 20, borderTop: "3px solid var(--red)" }}>
+                  <div style={{ display: "flex", gap: 2 }}>
+                    {[...Array(5)].map((_, j) => <span key={j} style={{ color: "#f4b942", fontSize: 16 }}>★</span>)}
+                  </div>
+                  <p style={{ fontSize: 15, color: "#333", lineHeight: 1.8, fontStyle: "italic", flex: 1 }}>"{r.quote}"</p>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                    <div>
+                      <p style={{ fontWeight: 700, fontSize: 14, color: "var(--black)" }}>{r.name}</p>
+                      <p style={{ fontSize: 12, color: "var(--grey-light)" }}>Google Review · {r.year}</p>
+                    </div>
+                    <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" alt="Google" style={{ width: 22, height: 22, opacity: 0.7 }} />
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 
