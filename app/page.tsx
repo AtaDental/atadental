@@ -1,4 +1,5 @@
 "use client";
+import Footer from "./components/Footer";
 import { useState, useEffect, useRef } from "react";
 
 const LOGO_URL = "/ATADental_Logo_Horizontal_POS.png";
@@ -679,16 +680,7 @@ export default function AtaDentalSite() {
       </section>
 
       {/* ─── FOOTER ─── */}
-      <footer style={{ background: "#111111", color: "rgba(255,255,255,0.4)", padding: "28px 24px", fontSize: 13 }}>
-        <div style={{ maxWidth: 1140, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-          <p>© 2026 Ata Dental. All rights reserved.</p>
-          <div style={{ display: "flex", gap: 20 }}>
-            <span style={{ cursor: "pointer", textDecoration: "underline" }}>Privacy Policy</span>
-            <span style={{ cursor: "pointer", textDecoration: "underline" }}>Accessibility</span>
-            <span style={{ cursor: "pointer", textDecoration: "underline" }}>Sitemap</span>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

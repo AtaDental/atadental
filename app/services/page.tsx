@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const LOGO_URL = "/ATADental_Logo_Horizontal_POS.png";
 const BOOKING_URL = "https://app.nexhealth.com/appt/ATA_Dental?lid=39277";
@@ -420,9 +421,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Footer */}
-      <footer style={{ background: "#111111", color: "rgba(255,255,255,0.4)", padding: "28px 24px", fontSize: 13, textAlign: "center" }}>
-        <p>© 2026 Ata Dental. All rights reserved. | <a href="/" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "underline" }}>Back to Home</a></p>
-      </footer>
+      <Footer />
     </div>
   );
 }

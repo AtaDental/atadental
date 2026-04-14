@@ -1,5 +1,6 @@
 "use client";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 export default function MembershipPage() {
   return (
@@ -115,9 +116,7 @@ export default function MembershipPage() {
       </section>
 
       {/* Footer */}
-      <footer style={{ background: "#111111", color: "rgba(255,255,255,0.4)", padding: "28px 24px", fontSize: 13, textAlign: "center" }}>
-        <p>© 2026 Ata Dental. All rights reserved. | <a href="/" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "underline" }}>Back to Home</a></p>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -2,6 +2,7 @@
 import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const BOOKING_URL_ORLANDO = "https://app.nexhealth.com/appt/ATA_Dental?lid=39277";
 const BOOKING_URL_KISSIMMEE = "https://app.nexhealth.com/appt/ATA_Dental?lid=39261";
@@ -162,9 +163,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <footer style={{ background: "#111111", color: "rgba(255,255,255,0.4)", padding: "28px 24px", fontSize: 13, textAlign: "center" }}>
-        <p>© 2026 Ata Dental. All rights reserved. | <a href="/" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "underline" }}>Back to Home</a></p>
-      </footer>
+      <Footer />
     </div>
   );
 }
