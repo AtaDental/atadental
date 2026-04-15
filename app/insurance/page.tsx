@@ -52,18 +52,53 @@ export default function InsurancePage() {
         .btn-outline:hover { background: var(--red); color: white; }
         .carrier-row:nth-child(even) { background: var(--grey-bg); }
         .carrier-row:nth-child(odd) { background: white; }
+
+        /* Responsive layout classes */
+        .ins-hero { padding: 80px 24px 72px; }
+        .ins-hero-h1 { font-size: 52px; }
+        .ins-hero-sub { font-size: 18px; }
+        .ins-section { padding: 72px 24px; }
+        .ins-section-h2 { font-size: 38px; }
+        .ins-kicker { font-size: 13px; letter-spacing: 2px; }
+        .ways-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .cc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .cc-h2 { font-size: 34px; }
+        .cc-card { background: white; border-radius: 14px; padding: 36px 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+        .carrier-grid { display: grid; grid-template-columns: 1fr 2fr; }
+        .hmo-row { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+        .cta-h2 { font-size: 36px; }
+
+        @media (max-width: 900px) {
+          .ways-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+          .cc-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+        }
+        @media (max-width: 768px) {
+          .ins-hero { padding: 56px 20px !important; }
+          .ins-hero-h1 { font-size: 32px !important; line-height: 1.2 !important; }
+          .ins-hero-sub { font-size: 15px !important; }
+          .ins-section { padding: 56px 20px !important; }
+          .ins-section-h2 { font-size: 26px !important; }
+          .cc-h2 { font-size: 24px !important; }
+          .cc-card { padding: 24px 22px !important; }
+          .carrier-grid { padding: 14px 16px !important; }
+          .carrier-grid span { font-size: 13px !important; }
+          .hmo-row { gap: 20px !important; }
+          .hmo-row h3 { font-size: 19px !important; }
+          .cta-h2 { font-size: 26px !important; }
+          .btn-primary, .btn-outline { padding: 12px 22px !important; font-size: 14px !important; }
+        }
       `}</style>
 
       <Nav activePage="insurance" />
 
       {/* Hero */}
-      <section style={{ background: "var(--black)", padding: "80px 24px 72px" }}>
+      <section className="ins-hero" style={{ background: "var(--black)" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>Making Care Accessible</p>
-          <h1 className="serif" style={{ fontSize: 52, color: "white", lineHeight: 1.15, marginBottom: 20, maxWidth: 700 }}>
+          <p className="ins-kicker" style={{ color: "var(--red)", fontWeight: 600, textTransform: "uppercase", marginBottom: 16 }}>Making Care Accessible</p>
+          <h1 className="serif ins-hero-h1" style={{ color: "white", lineHeight: 1.15, marginBottom: 20, maxWidth: 700 }}>
             Insurance & Affordable Care Options
           </h1>
-          <p style={{ fontSize: 18, color: "rgba(255,255,255,0.7)", lineHeight: 1.75, maxWidth: 620, marginBottom: 36 }}>
+          <p className="ins-hero-sub" style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.75, maxWidth: 620, marginBottom: 36 }}>
             We accept most major insurance plans and offer flexible financing and membership options to make sure cost never stands between you and a healthy smile.
           </p>
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
@@ -76,13 +111,13 @@ export default function InsurancePage() {
       </section>
 
       {/* Options overview */}
-      <section style={{ padding: "72px 24px" }}>
+      <section className="ins-section">
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>Your Options</p>
-          <h2 className="serif" style={{ fontSize: 38, marginBottom: 8 }}>Ways to Pay</h2>
+          <p className="ins-kicker" style={{ color: "var(--red)", fontWeight: 600, textTransform: "uppercase", marginBottom: 12 }}>Your Options</p>
+          <h2 className="serif ins-section-h2" style={{ marginBottom: 8 }}>Ways to Pay</h2>
           <div style={{ width: 56, height: 3, background: "var(--red)", borderRadius: 2, marginBottom: 40 }} />
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }}>
+          <div className="ways-grid">
             {/* Insurance */}
             <div style={{ background: "white", border: "1px solid var(--grey-border)", borderRadius: 14, padding: "36px 28px", borderTop: "4px solid var(--red)" }}>
               <span style={{ fontSize: 36, display: "block", marginBottom: 16 }}>🏥</span>
@@ -117,11 +152,11 @@ export default function InsurancePage() {
       </section>
 
       {/* CareCredit */}
-      <section style={{ background: "var(--grey-bg)", padding: "64px 24px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
+      <section className="ins-section" style={{ background: "var(--grey-bg)" }}>
+        <div className="cc-grid" style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div>
-            <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>Also Accepted</p>
-            <h2 className="serif" style={{ fontSize: 34, marginBottom: 16 }}>CareCredit Healthcare Financing</h2>
+            <p className="ins-kicker" style={{ color: "var(--red)", fontWeight: 600, textTransform: "uppercase", marginBottom: 12 }}>Also Accepted</p>
+            <h2 className="serif cc-h2" style={{ marginBottom: 16 }}>CareCredit Healthcare Financing</h2>
             <div style={{ width: 56, height: 3, background: "var(--red)", borderRadius: 2, marginBottom: 24 }} />
             <p style={{ fontSize: 15, color: "var(--grey)", lineHeight: 1.8, marginBottom: 20 }}>
               CareCredit is a healthcare credit card designed specifically for medical and dental expenses. It offers promotional financing options including extended payment plans with low monthly payments — making larger procedures much more manageable.
@@ -134,7 +169,7 @@ export default function InsurancePage() {
               <a href="https://www.carecredit.com/apply" target="_blank" rel="noopener noreferrer" className="btn-outline">Apply — Kissimmee</a>
             </div>
           </div>
-          <div style={{ background: "white", borderRadius: 14, padding: "36px 32px", boxShadow: "0 4px 24px rgba(0,0,0,0.07)" }}>
+          <div className="cc-card">
             <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 20 }}>CareCredit Benefits</h3>
             {[
               "Extended payment plans available",
@@ -154,10 +189,10 @@ export default function InsurancePage() {
       </section>
 
       {/* Insurance section */}
-      <section id="insurance" style={{ padding: "72px 24px" }}>
+      <section id="insurance" className="ins-section">
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>Coverage Details</p>
-          <h2 className="serif" style={{ fontSize: 38, marginBottom: 8 }}>Accepted Insurance Plans</h2>
+          <p className="ins-kicker" style={{ color: "var(--red)", fontWeight: 600, textTransform: "uppercase", marginBottom: 12 }}>Coverage Details</p>
+          <h2 className="serif ins-section-h2" style={{ marginBottom: 8 }}>Accepted Insurance Plans</h2>
           <div style={{ width: 56, height: 3, background: "var(--red)", borderRadius: 2, marginBottom: 24 }} />
           <p style={{ fontSize: 16, color: "var(--grey)", lineHeight: 1.8, maxWidth: 760, marginBottom: 40 }}>
             We accept all indemnity (PPO) insurance plans — meaning you can choose <strong>any dentist</strong> you want. We are not in-network providers with HMO/DMO plans, but we welcome those patients as self-pay and highly recommend our <a href="/membership" style={{ color: "var(--red)", fontWeight: 600 }}>Membership Plan</a> to help reduce costs. If you don't see your carrier below, call us — most out-of-network plans still have benefits we can work with.
@@ -165,12 +200,12 @@ export default function InsurancePage() {
 
           {/* Carrier table */}
           <div style={{ borderRadius: 12, overflow: "hidden", border: "1px solid var(--grey-border)", marginBottom: 40 }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", background: "var(--black)", padding: "14px 24px" }}>
+            <div className="carrier-grid" style={{ background: "var(--black)", padding: "14px 24px" }}>
               <span style={{ color: "white", fontWeight: 700, fontSize: 13, textTransform: "uppercase", letterSpacing: 1 }}>Carrier</span>
               <span style={{ color: "white", fontWeight: 700, fontSize: 13, textTransform: "uppercase", letterSpacing: 1 }}>Network Status</span>
             </div>
             {CARRIERS.map((c) => (
-              <div key={c.name} className="carrier-row" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", padding: "14px 24px", alignItems: "center" }}>
+              <div key={c.name} className="carrier-row carrier-grid" style={{ padding: "14px 24px", alignItems: "center" }}>
                 <span style={{ fontWeight: 600, fontSize: 14 }}>{c.name}</span>
                 <span style={{ fontSize: 14, color: "var(--grey)" }}>{c.status}</span>
               </div>
@@ -197,8 +232,8 @@ export default function InsurancePage() {
       </section>
 
       {/* HMO/No Insurance callout */}
-      <section style={{ background: "var(--red-light)", padding: "56px 24px", borderTop: "1px solid rgba(196,18,48,0.15)", borderBottom: "1px solid rgba(196,18,48,0.15)" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", gap: 32, alignItems: "center", flexWrap: "wrap" }}>
+      <section className="ins-section" style={{ background: "var(--red-light)", padding: "56px 24px", borderTop: "1px solid rgba(196,18,48,0.15)", borderBottom: "1px solid rgba(196,18,48,0.15)" }}>
+        <div className="hmo-row" style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ flex: 1, minWidth: 280 }}>
             <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 10 }}>Have an HMO, DMO, or No Insurance?</h3>
             <p style={{ fontSize: 15, color: "var(--grey)", lineHeight: 1.75 }}>
@@ -213,9 +248,9 @@ export default function InsurancePage() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: "var(--black)", padding: "72px 24px", textAlign: "center" }}>
+      <section className="ins-section" style={{ background: "var(--black)", textAlign: "center" }}>
         <div style={{ maxWidth: 600, margin: "0 auto" }}>
-          <h2 className="serif" style={{ fontSize: 36, color: "white", marginBottom: 14 }}>Have Questions About Your Coverage?</h2>
+          <h2 className="serif cta-h2" style={{ color: "white", marginBottom: 14 }}>Have Questions About Your Coverage?</h2>
           <p style={{ fontSize: 16, color: "rgba(255,255,255,0.7)", lineHeight: 1.7, marginBottom: 32 }}>
             Our front desk team is happy to verify your insurance, explain your benefits, and help you choose the best payment option before your visit.
           </p>
