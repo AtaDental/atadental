@@ -27,23 +27,43 @@ export default function FinancingPage() {
         }
         .card:hover { transform: translateY(-4px); box-shadow: 0 12px 48px rgba(0,0,0,0.12); }
         .fin-hero-h1 { font-size: 44px; }
+        .fin-hero { padding: 80px 24px; }
+        .fin-section { padding: 80px 24px; }
+        .fin-section-h2 { font-size: 32px; }
         .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
         .apply-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .step-row { display: flex; gap: 24px; align-items: flex-start; }
+        .step-circle { min-width: 48px; height: 48px; border-radius: 50%; background: var(--red); color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; }
+        .step-title { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+        .step-desc { font-size: 15px; color: var(--grey); line-height: 1.6; }
+        .cta-h2 { font-size: 28px; }
+        .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .cta-btn { color: white; text-decoration: none; font-weight: 600; font-size: 16px; padding: 12px 24px; border: 2px solid rgba(255,255,255,0.5); border-radius: 6px; }
         @media (max-width: 900px) {
           .benefits-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
         @media (max-width: 768px) {
+          .fin-hero { padding: 56px 20px !important; }
           .fin-hero-h1 { font-size: 30px !important; }
-          .benefits-grid { grid-template-columns: 1fr !important; }
+          .fin-section { padding: 56px 20px !important; }
+          .fin-section-h2 { font-size: 26px !important; }
+          .benefits-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
           .apply-grid { grid-template-columns: 1fr !important; }
           .card { padding: 24px !important; }
+          .step-row { gap: 16px !important; }
+          .step-circle { min-width: 40px !important; height: 40px !important; font-size: 17px !important; }
+          .step-title { font-size: 17px !important; }
+          .step-desc { font-size: 14px !important; }
+          .cta-h2 { font-size: 24px !important; }
+          .cta-btns { flex-direction: column; gap: 10px !important; }
+          .cta-btn { width: 100%; padding: 14px 16px !important; font-size: 15px !important; text-align: center; box-sizing: border-box; }
         }
       `}</style>
 
       <Nav activePage="financing" />
 
       {/* Hero */}
-      <section style={{ background: "var(--black)", padding: "80px 24px", textAlign: "center" }}>
+      <section className="fin-hero" style={{ background: "var(--black)", textAlign: "center" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
           <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>Patient Resources</p>
           <h1 className="serif fin-hero-h1" style={{ color: "white", marginBottom: 16 }}>Cherry Financing</h1>
@@ -54,9 +74,9 @@ export default function FinancingPage() {
       </section>
 
       {/* Benefits */}
-      <section style={{ padding: "80px 24px" }}>
+      <section className="fin-section">
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
-          <h2 className="serif" style={{ fontSize: 32, marginBottom: 8, textAlign: "center" }}>Why Choose Cherry?</h2>
+          <h2 className="serif fin-section-h2" style={{ marginBottom: 8, textAlign: "center" }}>Why Choose Cherry?</h2>
           <div style={{ width: 60, height: 3, background: "var(--red)", borderRadius: 2, margin: "0 auto 48px" }} />
 
           <div className="benefits-grid">
@@ -79,9 +99,9 @@ export default function FinancingPage() {
       </section>
 
       {/* How it works */}
-      <section style={{ background: "var(--grey-bg)", padding: "80px 24px" }}>
+      <section className="fin-section" style={{ background: "var(--grey-bg)" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <h2 className="serif" style={{ fontSize: 32, marginBottom: 8, textAlign: "center" }}>How It Works</h2>
+          <h2 className="serif fin-section-h2" style={{ marginBottom: 8, textAlign: "center" }}>How It Works</h2>
           <div style={{ width: 60, height: 3, background: "var(--red)", borderRadius: 2, margin: "0 auto 48px" }} />
 
           {[
@@ -89,17 +109,11 @@ export default function FinancingPage() {
             { step: "2", title: "Get Approved Instantly", desc: "Receive your approval in seconds with your available credit amount and payment plan options." },
             { step: "3", title: "Start Your Treatment", desc: "Use your Cherry plan to pay for your dental care and enjoy easy monthly payments." },
           ].map((item, i) => (
-            <div key={i} style={{
-              display: "flex", gap: 24, alignItems: "flex-start", marginBottom: i < 2 ? 40 : 0,
-            }}>
-              <div style={{
-                minWidth: 48, height: 48, borderRadius: "50%", background: "var(--red)",
-                color: "white", display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 20, fontWeight: 700,
-              }}>{item.step}</div>
+            <div key={i} className="step-row" style={{ marginBottom: i < 2 ? 32 : 0 }}>
+              <div className="step-circle">{item.step}</div>
               <div>
-                <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 6 }}>{item.title}</h3>
-                <p style={{ fontSize: 15, color: "var(--grey)", lineHeight: 1.6 }}>{item.desc}</p>
+                <h3 className="step-title">{item.title}</h3>
+                <p className="step-desc">{item.desc}</p>
               </div>
             </div>
           ))}
@@ -107,9 +121,9 @@ export default function FinancingPage() {
       </section>
 
       {/* Apply */}
-      <section style={{ padding: "80px 24px" }}>
+      <section className="fin-section">
         <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
-          <h2 className="serif" style={{ fontSize: 32, marginBottom: 16 }}>Apply for Cherry Financing</h2>
+          <h2 className="serif fin-section-h2" style={{ marginBottom: 16 }}>Apply for Cherry Financing</h2>
           <p style={{ fontSize: 17, color: "var(--grey)", lineHeight: 1.7, marginBottom: 40 }}>
             Select your office location to begin the application process. You'll know if you're approved in just minutes.
           </p>
@@ -139,15 +153,15 @@ export default function FinancingPage() {
       {/* CTA */}
       <section style={{ background: "var(--red)", padding: "60px 24px", textAlign: "center" }}>
         <div style={{ maxWidth: 600, margin: "0 auto", color: "white" }}>
-          <h2 className="serif" style={{ fontSize: 28, marginBottom: 12 }}>Questions About Financing?</h2>
+          <h2 className="serif cta-h2" style={{ marginBottom: 12 }}>Questions About Financing?</h2>
           <p style={{ fontSize: 16, opacity: 0.9, marginBottom: 24, lineHeight: 1.6 }}>
             Our team is happy to help you understand your options. Call us or visit either location.
           </p>
-          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="tel:+14078576501" style={{ color: "white", textDecoration: "none", fontWeight: 600, fontSize: 16, padding: "12px 24px", border: "2px solid rgba(255,255,255,0.5)", borderRadius: 6 }}>
+          <div className="cta-btns">
+            <a href="tel:+14078576501" className="cta-btn">
               📞 Orlando: (407) 857-6501
             </a>
-            <a href="tel:+14078705151" style={{ color: "white", textDecoration: "none", fontWeight: 600, fontSize: 16, padding: "12px 24px", border: "2px solid rgba(255,255,255,0.5)", borderRadius: 6 }}>
+            <a href="tel:+14078705151" className="cta-btn">
               📞 Kissimmee: (407) 870-5151
             </a>
           </div>
