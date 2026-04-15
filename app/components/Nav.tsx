@@ -9,6 +9,7 @@ const MORE_LINKS = [
   { label: "Membership Plan", href: "/membership" },
   { label: "New Patients", href: "/new-patients" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Guarantee of Workmanship", href: "/guarantee" },
 ];
 
 const LOCATION_LINKS = [
