@@ -50,11 +50,18 @@ export default function KissimmeeOfficePage() {
       <Nav activePage="locations" />
 
       {/* Hero */}
-      <section style={{ background: "var(--black)", padding: "80px 24px" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+      <section style={{
+        position: "relative",
+        padding: "96px 24px",
+        backgroundImage: "linear-gradient(rgba(15,15,15,0.70), rgba(15,15,15,0.70)), url('/KissimmeeExterior.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", position: "relative", zIndex: 1 }}>
           <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>Our Locations</p>
-          <h1 className="serif" style={{ fontSize: 48, color: "white", marginBottom: 16 }}>Kissimmee Office</h1>
-          <p style={{ fontSize: 18, color: "rgba(255,255,255,0.7)", lineHeight: 1.7, maxWidth: 600 }}>
+          <h1 className="serif" style={{ fontSize: 48, color: "white", marginBottom: 16, textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}>Kissimmee Office</h1>
+          <p style={{ fontSize: 18, color: "rgba(255,255,255,0.9)", lineHeight: 1.7, maxWidth: 600, textShadow: "0 1px 6px rgba(0,0,0,0.4)" }}>
             Located inside the Grand Oaks Pointe building off South John Young Parkway. Six dentists on staff with varying specialties for the most customized care possible.
           </p>
           <div style={{ marginTop: 32, display: "flex", gap: 16, flexWrap: "wrap" }}>
