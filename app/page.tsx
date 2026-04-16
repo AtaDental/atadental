@@ -9,7 +9,7 @@ const SERVICES = [
   { icon: "🦷", title: "Dental Implants", desc: "Replace missing teeth with implant-supported restorations — the gold standard in restorative care, performed entirely in-house." },
   { icon: "✨", title: "Cosmetic Dentistry", desc: "Porcelain veneers, cosmetic crowns, clear aligners, and complete smile makeovers tailored to you." },
   { icon: "🚨", title: "Emergency Dental", desc: "Urgent care when you need it most — with a dedicated after-hours phone line so you can reach us anytime." },
-  { icon: "😁", title: "Invisalign", desc: "Straighten your smile discreetly with clear aligner therapy for teens and adults." },
+  { icon: "😁", title: "SureSmile", desc: "Straighten your smile discreetly with clear aligner therapy for teens and adults." },
   { icon: "💎", title: "Veneers", desc: "Custom porcelain veneers to correct chips, gaps, discoloration, and uneven teeth." },
   { icon: "🔬", title: "Root Canal Therapy", desc: "Eliminate tooth infection and preserve your natural teeth with gentle, effective endodontic treatment." },
   { icon: "🌟", title: "KOR Whitening", desc: "Professional-grade teeth whitening for dramatically brighter, longer-lasting results." },

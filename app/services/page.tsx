@@ -88,11 +88,11 @@ const SERVICE_CATEGORIES = [
         highlights: ["Works on stubborn stains", "Refrigerated gel for maximum potency", "Longer-lasting than over-the-counter", "In-office and take-home options"],
       },
       {
-        title: "Clear Aligners / Invisalign",
+        title: "Clear Aligners / SureSmile",
         icon: "😴",
         summary: "Straighten your teeth discreetly — no metal braces required.",
         detail:
-          "Clear aligner therapy uses a series of custom, removable plastic trays to gradually shift your teeth into alignment. They're virtually invisible, comfortable, and removable for eating and brushing. Dr. Robin and Dr. Cobo offer both Invisalign and other leading aligner systems for teens and adults.",
+          "Clear aligner therapy uses a series of custom, removable plastic trays to gradually shift your teeth into alignment. They're virtually invisible, comfortable, and removable for eating and brushing. Dr. Robin and Dr. Cobo offer SureSmile and other leading aligner systems for teens and adults.",
         highlights: ["Virtually invisible", "Removable for eating & cleaning", "No metal wires or brackets", "Teen and adult options"],
       },
     ],

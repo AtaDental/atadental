@@ -92,7 +92,7 @@ const DOCTORS: Record<string, {
     bio: [
       "Dr. Matthew Robin grew up right here in Orlando, Florida, and has a deep connection to the community he now serves. After earning his Doctor of Medicine in Dentistry, he joined Ata Dental and quickly became known for his warm chairside manner and thorough, prevention-first approach to dentistry.",
       "As a member of the Academy of General Dentistry, Dr. Robin is committed to staying current with the latest advancements in dental science. He believes strongly that good oral health is foundational to overall systemic health — and he makes sure his patients understand that connection at every visit.",
-      "Dr. Robin offers clear aligner therapy (including Invisalign) for both teens and adults looking to straighten their smiles discreetly, as well as endodontic treatment and a full range of general dental services. His focus on prevention means he works hard to help patients avoid problems before they start.",
+      "Dr. Robin offers clear aligner therapy (including SureSmile) for both teens and adults looking to straighten their smiles discreetly, as well as endodontic treatment and a full range of general dental services. His focus on prevention means he works hard to help patients avoid problems before they start.",
     ],
     education: [
       "Doctor of Medicine in Dentistry (DMD)",
@@ -100,7 +100,7 @@ const DOCTORS: Record<string, {
       "Continuing education in orthodontic aligners and endodontics",
     ],
     specialties: [
-      "Clear Aligners / Invisalign",
+      "Clear Aligners / SureSmile",
       "Endodontics",
       "Preventive Dentistry",
       "General Family Care",
@@ -147,7 +147,7 @@ const DOCTORS: Record<string, {
       "Ongoing advanced continuing education in aligners, endodontics, and complex care",
     ],
     specialties: [
-      "Clear Aligners / Invisalign",
+      "Clear Aligners / SureSmile",
       "Endodontics",
       "Complex Restorative Care",
       "Patient-Centered Treatment Planning",
