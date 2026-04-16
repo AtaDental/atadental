@@ -55,7 +55,7 @@ export default function OrlandoOfficePage() {
         padding: "96px 24px",
         backgroundImage: "linear-gradient(rgba(15,15,15,0.70), rgba(15,15,15,0.70)), url('/OrlandoExterior.jpg')",
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center 20%",
         backgroundRepeat: "no-repeat",
       }}>
         <div style={{ maxWidth: 900, margin: "0 auto", position: "relative", zIndex: 1 }}>
