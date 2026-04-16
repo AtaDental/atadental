@@ -92,13 +92,19 @@ export default function InsurancePage() {
       <Nav activePage="insurance" />
 
       {/* Hero */}
-      <section className="ins-hero" style={{ background: "var(--black)" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+      <section className="ins-hero" style={{
+        position: "relative",
+        backgroundImage: "linear-gradient(rgba(15,15,15,0.72), rgba(15,15,15,0.72)), url('/Consult.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 1 }}>
           <p className="ins-kicker" style={{ color: "var(--red)", fontWeight: 600, textTransform: "uppercase", marginBottom: 16 }}>Making Care Accessible</p>
-          <h1 className="serif ins-hero-h1" style={{ color: "white", lineHeight: 1.15, marginBottom: 20, maxWidth: 700 }}>
+          <h1 className="serif ins-hero-h1" style={{ color: "white", lineHeight: 1.15, marginBottom: 20, maxWidth: 700, textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}>
             Insurance & Affordable Care Options
           </h1>
-          <p className="ins-hero-sub" style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.75, maxWidth: 620, marginBottom: 36 }}>
+          <p className="ins-hero-sub" style={{ color: "rgba(255,255,255,0.9)", lineHeight: 1.75, maxWidth: 620, marginBottom: 36, textShadow: "0 1px 6px rgba(0,0,0,0.4)" }}>
             We accept most major insurance plans and offer flexible financing and membership options to make sure cost never stands between you and a healthy smile.
           </p>
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>

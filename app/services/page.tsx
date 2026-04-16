@@ -236,13 +236,20 @@ export default function ServicesPage() {
       <Nav activePage="services" />
 
       {/* Hero */}
-      <section style={{ background: "var(--black)", padding: "80px 24px 72px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+      <section style={{
+        position: "relative",
+        padding: "96px 24px",
+        backgroundImage: "linear-gradient(rgba(15,15,15,0.72), rgba(15,15,15,0.72)), url('/Oproom.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 1 }}>
           <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>Comprehensive Dental Care</p>
-          <h1 className="serif services-hero-h1" style={{ color: "white", lineHeight: 1.15, marginBottom: 20, maxWidth: 700 }}>
+          <h1 className="serif services-hero-h1" style={{ color: "white", lineHeight: 1.15, marginBottom: 20, maxWidth: 700, textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}>
             Every Service You Need, Under One Roof
           </h1>
-          <p style={{ fontSize: 18, color: "rgba(255,255,255,0.7)", lineHeight: 1.75, maxWidth: 620, marginBottom: 36 }}>
+          <p style={{ fontSize: 18, color: "rgba(255,255,255,0.9)", lineHeight: 1.75, maxWidth: 620, marginBottom: 36, textShadow: "0 1px 6px rgba(0,0,0,0.4)" }}>
             From routine cleanings to full-arch implants, Ata Dental's team of specialists covers the full spectrum of dental care — with advanced technology and a patient-first approach.
           </p>
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>

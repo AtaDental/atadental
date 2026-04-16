@@ -63,11 +63,18 @@ export default function FinancingPage() {
       <Nav activePage="financing" />
 
       {/* Hero */}
-      <section className="fin-hero" style={{ background: "var(--black)", textAlign: "center" }}>
-        <div style={{ maxWidth: 800, margin: "0 auto" }}>
+      <section className="fin-hero" style={{
+        position: "relative",
+        textAlign: "center",
+        backgroundImage: "linear-gradient(rgba(15,15,15,0.72), rgba(15,15,15,0.72)), url('/Consult.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}>
+        <div style={{ maxWidth: 800, margin: "0 auto", position: "relative", zIndex: 1 }}>
           <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>Patient Resources</p>
-          <h1 className="serif fin-hero-h1" style={{ color: "white", marginBottom: 16 }}>Cherry Financing</h1>
-          <p style={{ fontSize: 18, color: "rgba(255,255,255,0.7)", lineHeight: 1.7 }}>
+          <h1 className="serif fin-hero-h1" style={{ color: "white", marginBottom: 16, textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}>Cherry Financing</h1>
+          <p style={{ fontSize: 18, color: "rgba(255,255,255,0.9)", lineHeight: 1.7, textShadow: "0 1px 6px rgba(0,0,0,0.4)" }}>
             Flexible payment plans so you can get the dental care you need today and pay over time.
           </p>
         </div>
