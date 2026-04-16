@@ -435,7 +435,7 @@ export default function AtaDentalSite() {
         <div className="section-pad">
           <FadeIn>
             <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>About Our Practice</p>
-            <h2 className="serif" style={{ fontSize: 40, marginTop: 8 }}>Six Specialists, Two Locations</h2>
+            <h2 className="serif" style={{ fontSize: 40, marginTop: 8 }}>Six Doctors, Two Locations</h2>
             <div className="divider" />
             <p style={{ fontSize: 17, color: "var(--grey)", maxWidth: 620, lineHeight: 1.75, marginBottom: 40 }}>
               Our team of six experienced dentists covers the full spectrum of care — from routine cleanings and orthodontics to dental implants, oral surgery, and emergency treatment. Serving South Orlando since 1981.
