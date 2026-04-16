@@ -98,11 +98,18 @@ export default function ContactPage() {
       <Nav activePage="contact" />
 
       {/* Hero */}
-      <section style={{ background: "var(--black)", padding: "80px 24px" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+      <section style={{
+        position: "relative",
+        padding: "96px 24px",
+        backgroundImage: "linear-gradient(rgba(15,15,15,0.72), rgba(15,15,15,0.72)), url('/TeamPhoto.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center 30%",
+        backgroundRepeat: "no-repeat",
+      }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", position: "relative", zIndex: 1 }}>
           <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>Get in Touch</p>
-          <h1 className="serif" style={{ fontSize: 50, color: "white", marginBottom: 16 }}>Contact Us</h1>
-          <p style={{ fontSize: 18, color: "rgba(255,255,255,0.7)", lineHeight: 1.7, maxWidth: 580 }}>
+          <h1 className="serif" style={{ fontSize: 50, color: "white", marginBottom: 16, textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}>Contact Us</h1>
+          <p style={{ fontSize: 18, color: "rgba(255,255,255,0.9)", lineHeight: 1.7, maxWidth: 580, textShadow: "0 1px 6px rgba(0,0,0,0.4)" }}>
             Have a question or need to reach us? Send a message below or call either office directly. For appointments, use our online booking system.
           </p>
         </div>
