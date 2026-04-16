@@ -1,6 +1,27 @@
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
+const CASES = [
+  {
+    id: 1,
+    title: "Porcelain Crown — Tooth #10",
+    procedure: "Single Crown",
+    description:
+      "A custom porcelain crown on the upper left lateral incisor (tooth #10) restored both function and appearance. The new crown blends seamlessly with the surrounding teeth for a natural, lifelike result.",
+    before: "/Case1-CrownBefore.jpg",
+    after: "/Case1-CrownAfter.png",
+  },
+  {
+    id: 2,
+    title: "Six-Unit Bridge & Crown — Teeth #6–#11 + #12",
+    procedure: "Fixed Bridge + Crown",
+    description:
+      "A six-unit porcelain bridge spanning the upper front teeth (canine to canine, #6 through #11), paired with a single crown on the upper left first premolar (#12). This full-arch cosmetic restoration rebuilt the patient's smile line and restored bite function.",
+    before: "/Case2-BridgeBefore.jpg",
+    after: "/Case2-BridgeAfter.jpg",
+  },
+];
+
 export default function GalleryPage() {
   return (
     <div style={{ fontFamily: "'Libre Franklin', 'Segoe UI', sans-serif", color: "#1a1a1a", background: "#ffffff", minHeight: "100vh" }}>
@@ -14,15 +35,65 @@ export default function GalleryPage() {
           --shadow: 0 4px 24px rgba(0,0,0,0.08);
         }
         .serif { font-family: 'DM Serif Display', Georgia, serif; }
-        .btn-primary {
-          background: var(--red); color: white; border: none; padding: 16px 40px;
-          border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer;
-          transition: all 0.3s; font-family: inherit; text-decoration: none; display: inline-block;
-        }
-        .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
         .gallery-hero-h1 { font-size: 48px; }
+        .case-card {
+          background: var(--white);
+          border-radius: 16px;
+          box-shadow: var(--shadow);
+          overflow: hidden;
+          margin-bottom: 56px;
+        }
+        .case-images {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2px;
+          background: var(--grey-border);
+        }
+        .case-image-wrap {
+          position: relative;
+          background: var(--black);
+          aspect-ratio: 4 / 3;
+          overflow: hidden;
+        }
+        .case-image-wrap img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        .case-label {
+          position: absolute;
+          top: 16px;
+          left: 16px;
+          background: rgba(0,0,0,0.75);
+          color: white;
+          padding: 6px 14px;
+          border-radius: 4px;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+        }
+        .case-label.after { background: var(--red); }
+        .case-body { padding: 32px 36px 36px; }
+        .case-kicker {
+          color: var(--red);
+          font-weight: 600;
+          font-size: 12px;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin-bottom: 8px;
+        }
+        .case-title { font-size: 24px; margin-bottom: 10px; }
+        .case-divider { width: 48px; height: 3px; background: var(--red); border-radius: 2px; margin-bottom: 16px; }
+        .case-desc { font-size: 15px; color: var(--grey); line-height: 1.75; }
+
         @media (max-width: 768px) {
           .gallery-hero-h1 { font-size: 34px !important; }
+          .case-images { grid-template-columns: 1fr !important; }
+          .case-body { padding: 24px 22px 28px !important; }
+          .case-title { font-size: 20px !important; }
+          .case-desc { font-size: 14px !important; }
         }
       `}</style>
 
@@ -39,17 +110,33 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Coming soon placeholder */}
-      <section style={{ padding: "80px 24px", background: "var(--grey-bg)" }}>
-        <div style={{ maxWidth: 960, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", padding: "80px 24px", background: "var(--white)", borderRadius: 16, boxShadow: "var(--shadow)" }}>
-            <div style={{ fontSize: 56, marginBottom: 20 }}>📷</div>
-            <h2 className="serif" style={{ fontSize: 30, marginBottom: 14 }}>Patient Cases Coming Soon</h2>
-            <p style={{ fontSize: 16, color: "var(--grey)", lineHeight: 1.75, maxWidth: 480, margin: "0 auto 32px" }}>
-              We're curating our best before-and-after cases to showcase the life-changing results our team delivers. Check back soon.
-            </p>
-            <a href="/team" style={{ color: "var(--red)", fontWeight: 600, fontSize: 15, textDecoration: "none" }}>Meet Our Dentists →</a>
-          </div>
+      {/* Cases */}
+      <section style={{ padding: "72px 24px", background: "var(--grey-bg)" }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+          {CASES.map((c) => (
+            <article key={c.id} className="case-card">
+              <div className="case-images">
+                <div className="case-image-wrap">
+                  <img src={c.before} alt={`${c.title} — before`} />
+                  <span className="case-label">Before</span>
+                </div>
+                <div className="case-image-wrap">
+                  <img src={c.after} alt={`${c.title} — after`} />
+                  <span className="case-label after">After</span>
+                </div>
+              </div>
+              <div className="case-body">
+                <p className="case-kicker">{c.procedure}</p>
+                <h2 className="serif case-title">{c.title}</h2>
+                <div className="case-divider" />
+                <p className="case-desc">{c.description}</p>
+              </div>
+            </article>
+          ))}
+
+          <p style={{ textAlign: "center", fontSize: 14, color: "var(--grey-light)", fontStyle: "italic", marginTop: 16 }}>
+            Results vary by patient. Photos shared with patient consent.
+          </p>
         </div>
       </section>
 
