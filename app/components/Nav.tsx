@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
 const LOGO_URL = "/ATADental_Logo_Horizontal_POS.png";
 const BOOKING_URL = "https://app.nexhealth.com/appt/ATA_Dental?lid=39277";
@@ -111,7 +112,7 @@ export default function Nav({ activePage }: { activePage?: string }) {
 
           {/* Logo */}
           <a href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none", flexShrink: 0 }}>
-            <img src={LOGO_URL} alt="Ata Dental" style={{ height: 42 }} />
+            <Image src={LOGO_URL} alt="Ata Dental — dentist in Orlando and Kissimmee FL" width={180} height={42} style={{ height: 42, width: "auto" }} priority />
           </a>
 
           {/* Desktop nav */}

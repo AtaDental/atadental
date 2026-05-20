@@ -1,5 +1,6 @@
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
+import Image from "next/image";
 const BOOKING_URL = "https://app.nexhealth.com/appt/ATA_Dental?lid=39277";
 
 const DOCTORS: Record<string, {
@@ -213,10 +214,11 @@ export default async function DoctorPage({ params }: { params: Promise<{ slug: s
           </a>
         </div>
         <div style={{ maxWidth: 1000, margin: "0 auto" }} className="doc-hero-inner">
-          <img
+          <Image
             src={doc.photo}
             alt={`${doc.name}, ${doc.credentials}`}
             className="doc-hero-photo"
+            width={400} height={500}
           />
           <div>
             <p style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>

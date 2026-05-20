@@ -1,5 +1,6 @@
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import Image from "next/image";
 
 const DOCTORS = [
   {
@@ -116,9 +117,10 @@ export default function TeamPage() {
           <div className="team-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }}>
             {DOCTORS.map((doc) => (
               <div key={doc.slug} className="doctor-card">
-                <img
+                <Image
                   src={doc.photo} alt={`${doc.name}, ${doc.credentials}`}
                   className="doctor-photo"
+                  width={400} height={450}
                   style={{ width: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
                 />
                 <div style={{ padding: "24px 24px 28px", flex: 1, display: "flex", flexDirection: "column" }}>

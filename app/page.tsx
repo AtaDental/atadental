@@ -1,22 +1,23 @@
 "use client";
 import Footer from "./components/Footer";
+import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
 const LOGO_URL = "/ATADental_Logo_Horizontal_POS.png";
 
 const SERVICES = [
-  { icon: "👑", title: "Dental Crowns", desc: "Restore damaged teeth in a single visit using advanced 3Shape TRIOS scanners and CAD/CAM technology." },
-  { icon: "🦷", title: "Dental Implants", desc: "Replace missing teeth with implant-supported restorations — the gold standard in restorative care, performed entirely in-house." },
-  { icon: "✨", title: "Cosmetic Dentistry", desc: "Porcelain veneers, cosmetic crowns, clear aligners, and complete smile makeovers tailored to you." },
-  { icon: "🚨", title: "Emergency Dental", desc: "Urgent care when you need it most — with a dedicated after-hours phone line so you can reach us anytime." },
-  { icon: "😁", title: "SureSmile", desc: "Straighten your smile discreetly with clear aligner therapy for teens and adults." },
-  { icon: "💎", title: "Veneers", desc: "Custom porcelain veneers to correct chips, gaps, discoloration, and uneven teeth." },
-  { icon: "🔬", title: "Root Canal Therapy", desc: "Eliminate tooth infection and preserve your natural teeth with gentle, effective endodontic treatment." },
-  { icon: "🌟", title: "KOR Whitening", desc: "Professional-grade teeth whitening for dramatically brighter, longer-lasting results." },
-  { icon: "🖥️", title: "3D Imaging", desc: "State-of-the-art digital scanners and 3D imaging for precise diagnostics and treatment planning." },
-  { icon: "🏗️", title: "All-on-4 Implants", desc: "Full-arch restoration on just four implants — a life-changing solution for extensive tooth loss." },
-  { icon: "⚡", title: "Same-Day Crowns", desc: "Walk in with a damaged tooth and leave with a permanent, custom-milled crown the same day." },
-  { icon: "😴", title: "Sedation Dentistry", desc: "Nitrous oxide and oral conscious sedation options to keep you comfortable and anxiety-free." },
+  { icon: "👑", title: "Dental Crowns", slug: "dental-crowns", desc: "Restore damaged teeth in a single visit using advanced 3Shape TRIOS scanners and CAD/CAM technology." },
+  { icon: "🦷", title: "Dental Implants", slug: "dental-implants", desc: "Replace missing teeth with implant-supported restorations — the gold standard in restorative care, performed entirely in-house." },
+  { icon: "✨", title: "Cosmetic Dentistry", slug: "cosmetic-dentistry", desc: "Porcelain veneers, cosmetic crowns, clear aligners, and complete smile makeovers tailored to you." },
+  { icon: "🚨", title: "Emergency Dental", slug: "emergency-dentist", desc: "Urgent care when you need it most — with a dedicated after-hours phone line so you can reach us anytime." },
+  { icon: "😁", title: "SureSmile", slug: "clear-aligners", desc: "Straighten your smile discreetly with clear aligner therapy for teens and adults." },
+  { icon: "💎", title: "Veneers", slug: "veneers", desc: "Custom porcelain veneers to correct chips, gaps, discoloration, and uneven teeth." },
+  { icon: "🔬", title: "Root Canal Therapy", slug: "root-canal", desc: "Eliminate tooth infection and preserve your natural teeth with gentle, effective endodontic treatment." },
+  { icon: "🌟", title: "KOR Whitening", slug: "kor-whitening", desc: "Professional-grade teeth whitening for dramatically brighter, longer-lasting results." },
+  { icon: "🖥️", title: "3D Imaging", slug: "3d-imaging", desc: "State-of-the-art digital scanners and 3D imaging for precise diagnostics and treatment planning." },
+  { icon: "🏗️", title: "All-on-4 Implants", slug: "all-on-4-implants", desc: "Full-arch restoration on just four implants — a life-changing solution for extensive tooth loss." },
+  { icon: "⚡", title: "Same-Day Crowns", slug: "dental-crowns", desc: "Walk in with a damaged tooth and leave with a permanent, custom-milled crown the same day." },
+  { icon: "😴", title: "Sedation Dentistry", slug: "sedation-dentistry", desc: "Nitrous oxide and oral conscious sedation options to keep you comfortable and anxiety-free." },
 ];
 
 const DOCTORS = [
@@ -251,7 +252,7 @@ export default function AtaDentalSite() {
       }}>
         <div style={{ maxWidth: 1140, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
           <div style={{ cursor: "pointer", display: "flex", alignItems: "center" }} onClick={() => scrollTo("home")}>
-            <img src={LOGO_URL} alt="Ata Dental" style={{ height: 42, width: "auto" }} />
+            <Image src={LOGO_URL} alt="Ata Dental" width={180} height={42} style={{ height: 42, width: "auto" }} priority />
           </div>
           <div className="desktop-nav" style={{ display: "flex", gap: 24, alignItems: "center" }}>
             <button className={`nav-link ${activeSection === "home" ? "active" : ""}`} onClick={() => scrollTo("home")}>Home</button>
@@ -406,7 +407,7 @@ export default function AtaDentalSite() {
           <div className="grid-2" style={{ gap: 32 }}>
             <FadeIn delay={0.1}>
               <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.1)" }}>
-                <img src="/CBCT.jpg" alt="CBCT 3D Imaging Machine" style={{ width: "100%", height: 280, objectFit: "cover", display: "block" }} />
+                <Image src="/CBCT.jpg" alt="CBCT cone beam 3D imaging scanner at Ata Dental Orlando office" width={600} height={280} style={{ width: "100%", height: 280, objectFit: "cover", display: "block" }} />
                 <div style={{ padding: "24px 28px", background: "var(--white)" }}>
                   <h3 style={{ fontSize: 19, fontWeight: 700, marginBottom: 8 }}>CBCT 3D Imaging</h3>
                   <p style={{ fontSize: 14, color: "var(--grey)", lineHeight: 1.7 }}>
@@ -417,7 +418,7 @@ export default function AtaDentalSite() {
             </FadeIn>
             <FadeIn delay={0.2}>
               <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.1)" }}>
-                <img src="/DentalLab.jpg" alt="In-House Dental Lab" style={{ width: "100%", height: 280, objectFit: "cover", display: "block" }} />
+                <Image src="/DentalLab.jpg" alt="In-house dental lab at Ata Dental for same-day crowns and restorations" width={600} height={280} style={{ width: "100%", height: 280, objectFit: "cover", display: "block" }} />
                 <div style={{ padding: "24px 28px", background: "var(--white)" }}>
                   <h3 style={{ fontSize: 19, fontWeight: 700, marginBottom: 8 }}>In-House Dental Lab</h3>
                   <p style={{ fontSize: 14, color: "var(--grey)", lineHeight: 1.7 }}>
@@ -446,7 +447,7 @@ export default function AtaDentalSite() {
               {DOCTORS.slice(0, 3).map((doc) => (
                 <a key={doc.slug} href={`/team/${doc.slug}`} style={{ textDecoration: "none" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 16, background: "var(--white)", borderRadius: 12, padding: "18px 20px", boxShadow: "var(--shadow)", transition: "box-shadow 0.2s" }}>
-                    <img src={doc.photo} alt={doc.name} style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover", objectPosition: "center top", border: "2px solid var(--red)", flexShrink: 0 }} />
+                    <Image src={doc.photo} alt={`${doc.name} — ${doc.role} at Ata Dental`} width={64} height={64} style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover", objectPosition: "center top", border: "2px solid var(--red)", flexShrink: 0 }} />
                     <div>
                       <p style={{ fontWeight: 700, fontSize: 15, color: "var(--black)" }}>{doc.name}</p>
                       <p style={{ fontSize: 12, color: "var(--red)", fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.3, marginTop: 2 }}>{doc.role}</p>
@@ -459,7 +460,7 @@ export default function AtaDentalSite() {
               {DOCTORS.slice(3).map((doc) => (
                 <a key={doc.slug} href={`/team/${doc.slug}`} style={{ textDecoration: "none" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 16, background: "var(--white)", borderRadius: 12, padding: "18px 20px", boxShadow: "var(--shadow)", transition: "box-shadow 0.2s" }}>
-                    <img src={doc.photo} alt={doc.name} style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover", objectPosition: "center top", border: "2px solid var(--red)", flexShrink: 0 }} />
+                    <Image src={doc.photo} alt={`${doc.name} — ${doc.role} at Ata Dental`} width={64} height={64} style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover", objectPosition: "center top", border: "2px solid var(--red)", flexShrink: 0 }} />
                     <div>
                       <p style={{ fontWeight: 700, fontSize: 15, color: "var(--black)" }}>{doc.name}</p>
                       <p style={{ fontSize: 12, color: "var(--red)", fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.3, marginTop: 2 }}>{doc.role}</p>
@@ -486,11 +487,12 @@ export default function AtaDentalSite() {
           <div className="grid-3">
             {SERVICES.map((svc, i) => (
               <FadeIn key={svc.title} delay={i * 0.05}>
-                <div className="card" style={{ borderLeft: "3px solid var(--red)", height: "100%" }}>
+                <a href={`/services/${svc.slug}`} className="card" style={{ borderLeft: "3px solid var(--red)", height: "100%", textDecoration: "none", color: "inherit", display: "block" }}>
                   <div style={{ fontSize: 28, marginBottom: 12 }}>{svc.icon}</div>
                   <h3 style={{ fontSize: 17, fontWeight: 700, marginBottom: 8 }}>{svc.title}</h3>
                   <p style={{ fontSize: 14, color: "var(--grey)", lineHeight: 1.65 }}>{svc.desc}</p>
-                </div>
+                  <span style={{ color: "var(--red)", fontWeight: 600, fontSize: 13, marginTop: 12, display: "inline-block" }}>Learn More →</span>
+                </a>
               </FadeIn>
             ))}
           </div>
@@ -611,7 +613,7 @@ export default function AtaDentalSite() {
                       <p style={{ fontWeight: 700, fontSize: 14, color: "var(--black)" }}>{r.name}</p>
                       <p style={{ fontSize: 12, color: "var(--grey-light)" }}>Google Review · {r.year}</p>
                     </div>
-                    <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" alt="Google" style={{ width: 22, height: 22, opacity: 0.7 }} />
+                    <Image src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" alt="Google" width={22} height={22} style={{ width: 22, height: 22, opacity: 0.7 }} />
                   </div>
                 </div>
               </FadeIn>

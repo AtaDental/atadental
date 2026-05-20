@@ -14,9 +14,18 @@ const HOURS = [
 ];
 
 const SERVICES = [
-  "3D Imaging", "Same-Day Crowns", "Cosmetic Dentistry", "Dental Crowns",
-  "Dental Implants", "Emergency Dental Treatment", "KOR Whitening",
-  "Root Canal", "Clear Aligners", "Veneers",
+  { name: "Dental Implants", slug: "dental-implants" },
+  { name: "Same-Day Crowns", slug: "dental-crowns" },
+  { name: "Cosmetic Dentistry", slug: "cosmetic-dentistry" },
+  { name: "Dental Crowns", slug: "dental-crowns" },
+  { name: "All-on-4 Implants", slug: "all-on-4-implants" },
+  { name: "Emergency Dental Care", slug: "emergency-dentist" },
+  { name: "KOR Whitening", slug: "kor-whitening" },
+  { name: "Root Canal", slug: "root-canal" },
+  { name: "Clear Aligners", slug: "clear-aligners" },
+  { name: "Veneers", slug: "veneers" },
+  { name: "3D Imaging", slug: "3d-imaging" },
+  { name: "Sedation Dentistry", slug: "sedation-dentistry" },
 ];
 
 export default function OrlandoOfficePage() {
@@ -124,10 +133,11 @@ export default function OrlandoOfficePage() {
           <div style={{ width: 60, height: 3, background: "var(--red)", borderRadius: 2, marginBottom: 32 }} />
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 12 }}>
             {SERVICES.map((svc) => (
-              <div key={svc} style={{ display: "flex", alignItems: "center", gap: 12, padding: "14px 20px", background: "var(--white)", borderRadius: 8, boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
+              <a key={svc.slug} href={`/services/${svc.slug}`} style={{ display: "flex", alignItems: "center", gap: 12, padding: "14px 20px", background: "var(--white)", borderRadius: 8, boxShadow: "0 2px 8px rgba(0,0,0,0.04)", textDecoration: "none", color: "var(--black)", transition: "all 0.2s" }}>
                 <span style={{ color: "var(--red)", fontSize: 18 }}>✓</span>
-                <span style={{ fontSize: 15, fontWeight: 500 }}>{svc}</span>
-              </div>
+                <span style={{ fontSize: 15, fontWeight: 500 }}>{svc.name}</span>
+                <span style={{ marginLeft: "auto", color: "var(--red)", fontSize: 13, fontWeight: 600 }}>→</span>
+              </a>
             ))}
           </div>
         </div>

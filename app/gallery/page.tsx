@@ -1,5 +1,6 @@
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import Image from "next/image";
 
 const CASES = [
   {
@@ -123,11 +124,11 @@ export default function GalleryPage() {
             <article key={c.id} className="case-card">
               <div className="case-images">
                 <div className="case-image-wrap">
-                  <img src={c.before} alt={`${c.title} — before`} />
+                  <Image src={c.before} alt={`${c.title} — before treatment at Ata Dental Orlando`} width={600} height={450} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                   <span className="case-label">Before</span>
                 </div>
                 <div className="case-image-wrap">
-                  <img src={c.after} alt={`${c.title} — after`} />
+                  <Image src={c.after} alt={`${c.title} — after treatment at Ata Dental Orlando`} width={600} height={450} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                   <span className="case-label after">After</span>
                 </div>
               </div>
@@ -143,6 +144,11 @@ export default function GalleryPage() {
           <p style={{ textAlign: "center", fontSize: 14, color: "var(--grey-light)", fontStyle: "italic", marginTop: 16 }}>
             Results vary by patient. Photos shared with patient consent.
           </p>
+
+          <div style={{ textAlign: "center", marginTop: 40, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+            <a href="/services" style={{ color: "var(--red)", fontWeight: 600, fontSize: 15, textDecoration: "none" }}>View All Services →</a>
+            <a href="/team" style={{ color: "var(--red)", fontWeight: 600, fontSize: 15, textDecoration: "none" }}>Meet Our Team →</a>
+          </div>
         </div>
       </section>
 

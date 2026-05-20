@@ -463,6 +463,26 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         </section>
       )}
 
+      {/* Visit Us — Location cross-links */}
+      <section style={{ padding: "56px 24px", borderTop: "1px solid var(--grey-border)" }}>
+        <div style={{ maxWidth: 800, margin: "0 auto" }}>
+          <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 8, textAlign: "center" }}>Available at Both Locations</h2>
+          <p style={{ fontSize: 15, color: "var(--grey)", textAlign: "center", marginBottom: 24, lineHeight: 1.6 }}>
+            {svc.title} is offered at our Orlando and Kissimmee offices. Choose the location most convenient for you.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, maxWidth: 560, margin: "0 auto" }}>
+            <a href="/locations/orlando" style={{ display: "block", background: "var(--grey-bg)", borderRadius: 10, padding: "20px 24px", textDecoration: "none", color: "var(--black)", textAlign: "center", border: "1px solid var(--grey-border)", transition: "all 0.2s" }}>
+              <span style={{ fontWeight: 700, fontSize: 16, display: "block", marginBottom: 4 }}>Orlando Office</span>
+              <span style={{ fontSize: 13, color: "var(--grey)" }}>(407) 857-6501</span>
+            </a>
+            <a href="/locations/kissimmee" style={{ display: "block", background: "var(--grey-bg)", borderRadius: 10, padding: "20px 24px", textDecoration: "none", color: "var(--black)", textAlign: "center", border: "1px solid var(--grey-border)", transition: "all 0.2s" }}>
+              <span style={{ fontWeight: 700, fontSize: 16, display: "block", marginBottom: 4 }}>Kissimmee Office</span>
+              <span style={{ fontSize: 13, color: "var(--grey)" }}>(407) 870-5151</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section style={{ background: "var(--black)", padding: "60px 24px", textAlign: "center" }}>
         <div style={{ maxWidth: 600, margin: "0 auto", color: "white" }}>

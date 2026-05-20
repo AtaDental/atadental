@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const LOGO_URL = "/ATADental_Logo_Horizontal_POS.png";
 
 const QUICK_LINKS = [
@@ -44,7 +46,7 @@ export default function Footer() {
 
           {/* Column 1 — Brand */}
           <div>
-            <img src={LOGO_URL} alt="Ata Dental" style={{ height: 38, marginBottom: 20, filter: "brightness(0) invert(1)", opacity: 0.9 }} />
+            <Image src={LOGO_URL} alt="Ata Dental — family dentistry in Orlando and Kissimmee since 1989" width={160} height={38} style={{ height: 38, width: "auto", marginBottom: 20, filter: "brightness(0) invert(1)", opacity: 0.9 }} />
             <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.8, marginBottom: 24, maxWidth: 240 }}>
               Family-owned dentistry in South Orlando since 1989. Two convenient locations serving Orlando and Kissimmee, FL.
             </p>
