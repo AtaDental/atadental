@@ -17,6 +17,7 @@ const SERVICE_CATEGORIES = [
       {
         title: "Dental Crowns",
         icon: "👑",
+        slug: "dental-crowns",
         summary: "Restore a damaged or weakened tooth in a single visit.",
         detail:
           "Dental crowns are one of the most versatile restorations in dentistry — used to protect cracked teeth, cover large fillings, and restore teeth after root canal therapy. At Ata Dental, we use 3Shape TRIOS® digital scanners and in-office CAD/CAM milling so your permanent, custom crown is ready the same day.",
@@ -25,6 +26,7 @@ const SERVICE_CATEGORIES = [
       {
         title: "Same-Day Crowns",
         icon: "⚡",
+        slug: "dental-crowns",
         summary: "Walk in with a broken tooth. Walk out with a permanent crown.",
         detail:
           "Our CAD/CAM technology allows us to design, mill, and place a custom porcelain crown in a single appointment — typically in about 90 minutes. No temporary crowns, no second visits, no waiting weeks for a lab.",
@@ -33,6 +35,7 @@ const SERVICE_CATEGORIES = [
       {
         title: "Dental Implants",
         icon: "🔩",
+        slug: "dental-implants",
         summary: "The gold standard for replacing missing teeth — done entirely in-house.",
         detail:
           "Dental implants are titanium posts surgically placed in the jawbone to act as artificial tooth roots. Once healed, they support a crown, bridge, or full arch restoration. Unlike dentures, implants are permanent and preserve jawbone. Every step — from extraction to final crown — is performed right here at Ata Dental.",
@@ -41,6 +44,7 @@ const SERVICE_CATEGORIES = [
       {
         title: "All-on-4 Implants",
         icon: "🏗️",
+        slug: "all-on-4-implants",
         summary: "Full-arch restoration on just four implants.",
         detail:
           "All-on-4 is a revolutionary technique that supports a complete arch of replacement teeth on only four strategically placed implants. It's an ideal solution for patients with significant tooth loss or those who are tired of ill-fitting dentures. The result is a permanent, natural-looking smile.",
@@ -49,6 +53,7 @@ const SERVICE_CATEGORIES = [
       {
         title: "Root Canal Therapy",
         icon: "🔬",
+        slug: "root-canal",
         summary: "Save your natural tooth and eliminate infection — comfortably.",
         detail:
           "When decay reaches the inner pulp of a tooth, a root canal removes the infected tissue, seals the canal, and saves your tooth from extraction. Modern techniques and anesthesia make the procedure far more comfortable than its reputation suggests. Dr. Mikhail and Dr. Broche specialize in endodontic care.",
@@ -66,6 +71,7 @@ const SERVICE_CATEGORIES = [
       {
         title: "Porcelain Veneers",
         icon: "💎",
+        slug: "veneers",
         summary: "Transform your smile with ultra-thin, custom porcelain shells.",
         detail:
           "Veneers are wafer-thin porcelain facings bonded to the front of your teeth to correct chips, gaps, discoloration, and mild misalignment. They require minimal tooth reduction and produce dramatic, long-lasting results. Our team will design your veneers to complement your facial features for a completely natural look.",
@@ -74,6 +80,7 @@ const SERVICE_CATEGORIES = [
       {
         title: "Cosmetic Dentistry",
         icon: "😁",
+        slug: "cosmetic-dentistry",
         summary: "Full smile makeovers tailored to your goals.",
         detail:
           "A smile makeover combines multiple cosmetic treatments — veneers, crowns, whitening, and more — to address all aspects of your smile in a coordinated treatment plan. We start with a comprehensive consultation to understand what you love (and don't love) about your smile, then design a customized roadmap.",
@@ -82,6 +89,7 @@ const SERVICE_CATEGORIES = [
       {
         title: "KOR Whitening",
         icon: "🌟",
+        slug: "kor-whitening",
         summary: "Professional whitening that tackles even deep, stubborn stains.",
         detail:
           "KOR Whitening is widely regarded as one of the most effective professional whitening systems available. Unlike standard bleaching, KOR uses refrigerated whitening trays and a unique delivery system to achieve dramatic results — even on teeth stained by tetracycline or fluorosis that other systems cannot treat.",
@@ -90,6 +98,7 @@ const SERVICE_CATEGORIES = [
       {
         title: "Clear Aligners / SureSmile",
         icon: "😴",
+        slug: "clear-aligners",
         summary: "Straighten your teeth discreetly — no metal braces required.",
         detail:
           "Clear aligner therapy uses a series of custom, removable plastic trays to gradually shift your teeth into alignment. They're virtually invisible, comfortable, and removable for eating and brushing. Dr. Robin and Dr. Cobo offer SureSmile and other leading aligner systems for teens and adults.",
@@ -123,6 +132,7 @@ const SERVICE_CATEGORIES = [
       {
         title: "3D Imaging",
         icon: "🖥️",
+        slug: "3d-imaging",
         summary: "State-of-the-art digital scans for precise diagnostics.",
         detail:
           "Our office uses digital 3D imaging (CBCT) for implant planning, evaluating bone structure, and diagnosing complex dental issues that standard 2D X-rays can miss. Combined with our 3Shape TRIOS® intraoral scanner, we can take impressions without messy trays — faster and more accurate.",
@@ -131,6 +141,7 @@ const SERVICE_CATEGORIES = [
       {
         title: "Sedation Dentistry",
         icon: "💤",
+        slug: "sedation-dentistry",
         summary: "Nitrous oxide and oral sedation for a calm, anxiety-free visit.",
         detail:
           "Dental anxiety is very common, and we take it seriously. Nitrous oxide (laughing gas) provides mild relaxation during treatment and wears off quickly, while oral conscious sedation offers deeper relaxation for longer procedures. You'll remain awake and responsive, just comfortable and at ease.",
@@ -148,6 +159,7 @@ const SERVICE_CATEGORIES = [
       {
         title: "Emergency Dental Treatment",
         icon: "🚨",
+        slug: "emergency-dentist",
         summary: "Urgent care for toothaches, broken teeth, lost crowns, and more.",
         detail:
           "Dental emergencies don't follow a schedule. Whether it's a sudden severe toothache, a cracked or knocked-out tooth, a lost filling, or a broken crown, Ata Dental has a dedicated after-hours phone line so you can reach us any time. We prioritize emergency patients and do our best to see you the same day.",
@@ -333,16 +345,12 @@ export default function ServicesPage() {
                           <span key={h} className="highlight-chip">✓ {h}</span>
                         ))}
                       </div>
-                      <a
-                        href={BOOKING_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-primary"
-                        style={{ padding: "12px 28px", fontSize: 14 }}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        Book a Consultation
-                      </a>
+                      <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                        {svc.slug && (
+                          <a href={`/services/${svc.slug}`} style={{ padding: "12px 28px", fontSize: 14, background: "transparent", color: "var(--red)", border: "2px solid var(--red)", borderRadius: 6, fontWeight: 600, textDecoration: "none", fontFamily: "inherit", display: "inline-block", transition: "all 0.3s" }} onClick={(e) => e.stopPropagation()}>Learn More →</a>
+                        )}
+                        <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: "12px 28px", fontSize: 14 }} onClick={(e) => e.stopPropagation()}>Book a Consultation</a>
+                      </div>
                     </div>
                   )}
                 </div>

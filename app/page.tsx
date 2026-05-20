@@ -594,7 +594,7 @@ export default function AtaDentalSite() {
               <div style={{ display: "flex", gap: 3 }}>
                 {[...Array(5)].map((_, i) => <span key={i} style={{ color: "#f4b942", fontSize: 22 }}>★</span>)}
               </div>
-              <span style={{ fontSize: 15, color: "var(--grey)", fontWeight: 500 }}>5.0 · Rated on Google</span>
+              <span style={{ fontSize: 15, color: "var(--grey)", fontWeight: 500 }}>4.9 · 700+ Reviews on Google</span>
               <a href="https://www.google.com/search?q=Ata+Dental+Orlando+reviews" target="_blank" rel="noopener noreferrer" style={{ marginLeft: 8, color: "var(--red)", fontSize: 13, fontWeight: 600, textDecoration: "none" }}>See all reviews →</a>
             </div>
           </FadeIn>
@@ -615,6 +615,26 @@ export default function AtaDentalSite() {
                   </div>
                 </div>
               </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── TRUST BADGES ─── */}
+      <section style={{ background: "var(--grey-bg)", borderTop: "1px solid var(--grey-border)", padding: "48px 24px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
+          <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "var(--grey-light)", marginBottom: 32 }}>Proud Members Of</p>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 48, flexWrap: "wrap" }}>
+            {[
+              { abbr: "ADA", full: "American Dental Association" },
+              { abbr: "AAID", full: "American Academy of Implant Dentistry" },
+              { abbr: "FDA", full: "Florida Dental Association" },
+              { abbr: "IAO", full: "International Association for Orthodontics" },
+            ].map((org) => (
+              <div key={org.abbr} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+                <span style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 28, fontWeight: 400, color: "var(--black)", letterSpacing: 1 }}>{org.abbr}</span>
+                <span style={{ fontSize: 11, color: "var(--grey-light)", maxWidth: 140, lineHeight: 1.4 }}>{org.full}</span>
+              </div>
             ))}
           </div>
         </div>
@@ -670,14 +690,6 @@ export default function AtaDentalSite() {
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.3}>
-            <div style={{ marginTop: 48 }}>
-              <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: 0.5, textTransform: "uppercase", opacity: 0.5, marginBottom: 12 }}>Professional Affiliations</p>
-              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                {AFFILIATIONS.map((a) => <span key={a} className="affil-tag">{a}</span>)}
-              </div>
-            </div>
-          </FadeIn>
         </div>
       </section>
 
