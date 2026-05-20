@@ -1,11 +1,65 @@
-export const metadata = {
-  title: 'Ata Dental | Orlando & Kissimmee Dentist',
-  description: 'State-of-the-art family dentistry serving Orlando since 1989.',
+import SchemaMarkup from "./components/SchemaMarkup";
+
+import type { Metadata } from "next";
+
+const SITE_URL = "https://atadental.vercel.app";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Ata Dental | Dentist in Orlando & Kissimmee, FL",
+    template: "%s | Ata Dental",
+  },
+  description:
+    "Family-owned dental practice serving Orlando & Kissimmee since 1989. Six doctors, two locations. Dental implants, same-day crowns, veneers, emergency care & more.",
+  keywords: [
+    "dentist Orlando FL",
+    "dentist Kissimmee FL",
+    "dental implants Orlando",
+    "same-day crowns Orlando",
+    "emergency dentist Orlando",
+    "cosmetic dentist Kissimmee",
+    "Ata Dental",
+    "family dentist Orlando",
+    "veneers Orlando",
+    "root canal Orlando",
+  ],
+  authors: [{ name: "Ata Dental" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Ata Dental",
+    title: "Ata Dental | Dentist in Orlando & Kissimmee, FL",
+    description:
+      "Family-owned dental practice serving Orlando & Kissimmee since 1989. Six doctors, two locations. Dental implants, same-day crowns, veneers, emergency care & more.",
+    url: SITE_URL,
+    images: [
+      {
+        url: "/TeamPhoto.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ata Dental team photo — Orlando & Kissimmee dentists",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ata Dental | Dentist in Orlando & Kissimmee, FL",
+    description:
+      "Family-owned dental practice since 1989. Dental implants, same-day crowns, veneers, emergency care & more.",
+    images: ["/TeamPhoto.jpg"],
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <SchemaMarkup />
+      </head>
       <body style={{ margin: 0 }}>
         {children}
         {/* Cherry Financing sticky widget */}

@@ -32,6 +32,12 @@ const OUT_OF_NETWORK = [
   "Horizon",
 ];
 
+export const metadata = {
+  title: "Insurance & Affordable Care Options",
+  description: "Ata Dental accepts most major insurance plans. We also offer Cherry financing with 0% APR, CareCredit, and a $300/year membership plan covering cleanings, exams, and X-rays.",
+  alternates: { canonical: "/insurance" },
+};
+
 export default function InsurancePage() {
   return (
     <div style={{ fontFamily: "'Libre Franklin', 'Segoe UI', sans-serif", color: "#1a1a1a", background: "#ffffff", minHeight: "100vh" }}>

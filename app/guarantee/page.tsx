@@ -2,9 +2,10 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
 export const metadata = {
-  title: "Guarantee of Workmanship | Ata Dental",
+  title: "Guarantee of Workmanship",
   description:
-    "Ata Dental stands behind our work. Learn about our material defect warranty covering implants, crowns, veneers, root canals, dentures, fillings and more.",
+    "Ata Dental stands behind our work. Our Guarantee of Workmanship covers implants for 7 years, crowns and veneers for 5 years, and root canals for 3 years.",
+  alternates: { canonical: "/guarantee" },
 };
 
 const WARRANTIES = [

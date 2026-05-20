@@ -22,6 +22,12 @@ const CASES = [
   },
 ];
 
+export const metadata = {
+  title: "Before & After Gallery",
+  description: "See real patient transformations at Ata Dental. Before and after photos of crowns, bridges, veneers, and smile makeovers performed at our Orlando office.",
+  alternates: { canonical: "/gallery" },
+};
+
 export default function GalleryPage() {
   return (
     <div style={{ fontFamily: "'Libre Franklin', 'Segoe UI', sans-serif", color: "#1a1a1a", background: "#ffffff", minHeight: "100vh" }}>

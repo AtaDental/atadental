@@ -48,6 +48,12 @@ const AFFILIATIONS = [
   "International Association for Orthodontics",
 ];
 
+export const metadata = {
+  title: "Meet Our Dentists — Orlando & Kissimmee",
+  description: "Meet the six experienced dentists at Ata Dental. From implant specialists to cosmetic dentists, our team provides comprehensive care at our Orlando and Kissimmee offices.",
+  alternates: { canonical: "/team" },
+};
+
 export default function TeamPage() {
   return (
     <div style={{ fontFamily: "'Libre Franklin', 'Segoe UI', sans-serif", color: "#1a1a1a", background: "#ffffff", minHeight: "100vh" }}>

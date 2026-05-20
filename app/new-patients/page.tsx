@@ -20,6 +20,12 @@ const WHAT_TO_EXPECT = [
   { step: "4", title: "Treatment Discussion", desc: "We'll walk you through our findings, explain any recommended treatment, and give you a clear cost estimate before scheduling anything." },
 ];
 
+export const metadata = {
+  title: "New Patients — What to Expect",
+  description: "First visit to Ata Dental? Learn what to expect, what to bring, and how we make your first appointment comfortable. Serving Orlando and Kissimmee.",
+  alternates: { canonical: "/new-patients" },
+};
+
 export default function NewPatientsPage() {
   return (
     <div style={{ fontFamily: "'Libre Franklin', 'Segoe UI', sans-serif", color: "#1a1a1a", background: "#ffffff", minHeight: "100vh" }}>
